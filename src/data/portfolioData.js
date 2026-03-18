@@ -20,7 +20,7 @@ export const personalInfo = {
   social: {
     linkedin: "https://www.linkedin.com/in/ariel-kevin-sodjinou/",
     github: "https://github.com/Ariel013",
-    twitter: "https://twitter.com/votre-username",
+    // twitter: "https://twitter.com/votre-username",
     portfolio: "https://votre-site.com"
   },
   
