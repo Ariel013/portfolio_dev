@@ -108,12 +108,12 @@ export const experiences = [
 export const projects = [
   {
     id: 1,
-    title: "Dashboard",
-    description: "Développement collaboratif d’un système de suivi académique à EPITECH Bénin (structuration et backend)",
+    title: "Bluelock",
+    description: "Plateforme de challenges CTF développée pour EPITECH Bénin, inspirée de HackTheBox. Elle intègre un système de score, un classement, la création de challenges personnalisés et une interface d’administration. Les règles du jeu sont inspirées du manga Blue Lock afin de rendre l’expérience plus immersive et originale.",
     image: "https://via.placeholder.com/600x400", // Remplacez par votre image
-    technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
+    technologies: ["React", "Node.js", "MongoDB", "Express.js", "Tailwind", "Docker"],
+    liveUrl: "https://epi-bluelock.bj/",
+    // githubUrl: "https://github.com/username/project",
     featured: true
   },
   {
