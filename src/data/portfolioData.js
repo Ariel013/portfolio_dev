@@ -11,10 +11,10 @@ export const personalInfo = {
   location: "Abidjan, Côte-d'Ivoire",
   
   // Photo de profil - Remplacez par le chemin de votre photo
-  avatar: "/Identity.png",
+  avatar: import.meta.env.BASE_URL + "Identity.png",
 
   // CV PDF - Mettez votre CV dans le dossier public et indiquez le chemin
-  resumeUrl: "/Ariel_Kevin_SODJINOU.pdf",
+  resumeUrl: import.meta.env.BASE_URL + "Ariel_Kevin_SODJINOU.pdf",
   
   // Réseaux sociaux
   social: {
