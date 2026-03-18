@@ -171,19 +171,19 @@ export const projects = [
 export const education = [
   {
     id: 1,
-    degree: "Master en Informatique",
-    school: "Université de Paris",
-    period: "2018 - 2020",
-    description: "Spécialisation en développement web et génie logiciel. Projet de fin d'études sur les architectures microservices.",
-    grade: "Mention Bien"
+    degree: "Certificat concepteur développeur Web et Mobile (RNCP Niveau 5)",
+    school: "EPITECH Bénin",
+    period: "2022 - 2023",
+    description: "Spécialisation en développement web et génie logiciel.",
+    // grade: "Mention Bien"
   },
   {
     id: 2,
-    degree: "Licence Informatique",
-    school: "Université Lyon 1",
-    period: "2015 - 2018",
-    description: "Formation généraliste en informatique couvrant les fondamentaux de la programmation, des bases de données et des réseaux.",
-    grade: "Mention Assez Bien"
+    degree: "Licence en Informatique, Réseaux et Télécommunications",
+    school: "ESGIS Bénin",
+    period: "2019 - 2022",
+    description: "Formation généraliste en informatique couvrant les fondamentaux des réseaux, systèmes et de la sécurité informatique.",
+    // grade: "Mention Bien"
   }
 ];
 
