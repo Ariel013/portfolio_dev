@@ -118,12 +118,12 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "Application de gestion de tâches collaborative avec système de notifications en temps réel.",
+    title: "RAG RH Assistant",
+    description: "Chatbot basé sur la méthode RAG (Retriever-Augmented Generation) pour répondre aux questions courantes des employés concernant les ressources humaines (politiques internes, avantages, congés, etc.). Ce système utilise un modèle d'IA pour récupérer des informations pertinentes et générer des réponses précises, automatisant ainsi les tâches RH et optimisant l'expérience des collaborateurs.",
     image: "https://via.placeholder.com/600x400",
-    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Socket.io"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
+    technologies: ["FastAPI", "ChromaDB", "Python", "HuggingFace Spaces"],
+    liveUrl: "https://arieldev13-assistant-rh-rag.hf.space",
+    githubUrl: "https://github.com/Ariel013/Rag-RH.git",
     featured: true
   },
   {
