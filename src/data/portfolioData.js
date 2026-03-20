@@ -73,7 +73,7 @@ export const experiences = [
       "Revue de code, assistance technique et mentorat",
       "Développement d'outils internes"
     ],
-    technologies: ["Node.js", "MongoDB", "Docker", "Python"]
+    technologies: ["Développement Web", "Backend", "Data/IA", "Pédagogie", "Machine Learning", "NLP","Data Analysis"]
   },
   {
     id: 2,
@@ -87,7 +87,7 @@ export const experiences = [
       "Monitoring d'outils de surveillance",
       "Veille de vulnérabilités"
     ],
-    technologies: ["FortiSIEM", "Python", "Scripting"]
+    technologies: ["Pentest","FortiSIEM", "Scripting"]
   },
   {
     id: 3,
@@ -99,9 +99,9 @@ export const experiences = [
       "Installation de systèmes d'exploitation",
       "Gestion et configuration d'équipements réseau",
       "Câblage réseau",
-      "Mise en place d'un proxy cache pour le contrôl des utilisateurs."
+      "Configuration et Mise en place d'un proxy cache (Artica Proxy) pour le contrôle des utilisateurs."
     ],
-    // technologies: ["JavaScript", "Vue.js", "HTML/CSS", "Git"]
+    // technologies: ["Packet Tracer", "Voix IP", "Réseaux"]
   }
 ];
 
