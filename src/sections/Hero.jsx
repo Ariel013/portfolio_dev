@@ -95,11 +95,11 @@ const Hero = () => {
               sequence={[
                 personalInfo.title,
                 2000,
+                'Développeur Backend',
+                2000,
                 'Créateur d\'expériences web modernes',
                 2000,
                 'Développeur Full Stack',
-                2000,
-                'Développeur Backend',
                 2000,
               ]}
               wrapper="h2"

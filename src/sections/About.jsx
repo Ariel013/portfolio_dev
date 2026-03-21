@@ -110,15 +110,15 @@ const About = () => {
                 className="grid grid-cols-3 gap-6 pt-8"
               >
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-light mb-2">3+</div>
+                  <div className="text-3xl font-bold text-primary-light mb-2">2+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Années d'expérience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-light mb-2">20+</div>
+                  <div className="text-3xl font-bold text-primary-light mb-2">5+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Projets réalisés</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-light mb-2">100%</div>
+                  <div className="text-3xl font-bold text-primary-light mb-2">99,99%</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Client satisfait</div>
                 </div>
               </motion.div>
