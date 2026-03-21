@@ -11,7 +11,7 @@ export const personalInfo = {
   location: "Abidjan, Côte-d'Ivoire",
   
   // Photo de profil - Remplacez par le chemin de votre photo
-  avatar: import.meta.env.BASE_URL + "Identity.png",
+  avatar: import.meta.env.BASE_URL + "https://res.cloudinary.com/dywgshhwp/image/upload/v1774098701/Identity_uql9xt.png",
 
   // CV PDF - Mettez votre CV dans le dossier public et indiquez le chemin
   resumeUrl: import.meta.env.BASE_URL + "Ariel_Kevin_SODJINOU.pdf",
@@ -110,7 +110,7 @@ export const projects = [
     id: 1,
     title: "Bluelock",
     description: "Plateforme de challenges CTF développée pour EPITECH Bénin, inspirée de HackTheBox. Elle intègre un système de score, un classement, la création de challenges personnalisés et une interface d’administration. Les règles du jeu sont inspirées du manga Blue Lock afin de rendre l’expérience plus immersive et originale.",
-    image: "https://via.placeholder.com/600x400", // Remplacez par votre image
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/bluelock_dnrkfh.png", // Remplacez par votre image
     technologies: ["React", "Node.js", "MongoDB", "Express.js", "Tailwind", "Docker"],
     liveUrl: "https://epi-bluelock.bj/",
     // githubUrl: "https://github.com/username/project",
@@ -120,7 +120,7 @@ export const projects = [
     id: 2,
     title: "RAG RH Assistant",
     description: "Chatbot basé sur la méthode RAG (Retriever-Augmented Generation) pour répondre aux questions courantes des employés concernant les ressources humaines (politiques internes, avantages, congés, etc.). Ce système utilise un modèle d'IA pour récupérer des informations pertinentes et générer des réponses précises, automatisant ainsi les tâches RH et optimisant l'expérience des collaborateurs.",
-    image: "rag.png",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/rag_kyoa3y.png",
     technologies: ["FastAPI", "ChromaDB", "Python"],
     liveUrl: "https://arieldev13-assistant-rh-rag.hf.space",
     githubUrl: "https://github.com/Ariel013/Rag-RH.git",
@@ -130,7 +130,7 @@ export const projects = [
     id: 3,
     title: "Hemosafe",
     description: "Conception et développement d’une application e-santé pour la gestion des demandes de transfusions sanguines dans les hôpitaux béninois.",
-    image: "screen.png",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/hemosafe_dc8cle.png",
     technologies: ["Next", "Nest", "Prisma", "Postgresql"],
     // liveUrl: "https://example.com",
     // githubUrl: "https://github.com/username/project",
