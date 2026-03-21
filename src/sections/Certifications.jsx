@@ -1,8 +1,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FaCertificate, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaShieldAlt } from 'react-icons/fa';
+import { SiPostman } from 'react-icons/si';
 import { certifications } from '../data/portfolioData';
+
+const issuerIconMap = {
+  'SecOps Group': { icon: FaShieldAlt, color: 'text-red-500' },
+  'Postman': { icon: SiPostman, color: 'text-orange-500' },
+};
 
 const Certifications = () => {
   const ref = useRef(null);
@@ -54,7 +60,7 @@ const Certifications = () => {
 
           {/* Certifications Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certifications.map((cert, index) => (
+            {certifications.map((cert) => (
               <motion.div
                 key={cert.id}
                 variants={itemVariants}
@@ -68,9 +74,16 @@ const Certifications = () => {
                 <div className="relative z-10">
                   {/* Icon */}
                   <div className="mb-4">
-                    <div className="inline-flex p-3 bg-gradient-to-br from-primary-light/10 to-accent-light/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                      <FaCertificate className="w-8 h-8 text-primary-light" />
-                    </div>
+                    {(() => {
+                      const mapping = issuerIconMap[cert.issuer];
+                      const IconComponent = mapping ? mapping.icon : FaShieldAlt;
+                      const colorClass = mapping ? mapping.color : 'text-primary-light';
+                      return (
+                        <div className="inline-flex p-3 bg-gradient-to-br from-primary-light/10 to-accent-light/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                          <IconComponent className={`w-8 h-8 ${colorClass}`} />
+                        </div>
+                      );
+                    })()}
                   </div>
 
                   {/* Certificate Name */}

@@ -132,19 +132,19 @@ const Skills = () => {
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   whileHover={{ y: -10, scale: 1.05 }}
-                  className="bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer card-hover"
+                  className="bg-white dark:bg-gray-700 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer card-hover"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="mb-2 p-4 bg-gradient-to-br from-primary-light/10 to-accent-light/10 rounded-2xl">
-                      <IconComponent className="w-12 h-12 text-primary-light" />
+                    <div className="mb-2 p-3 bg-gradient-to-br from-primary-light/10 to-accent-light/10 rounded-xl">
+                      <IconComponent className="w-8 h-8 text-primary-light" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                    <h3 className="font-semibold text-sm text-gray-900 dark:text-white mb-2">
                       {skill.name}
                     </h3>
                     
                     {/* Progress Bar */}
                     <div className="w-full">
-                      <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400 mb-1">
                         <span>Niveau</span>
                         {/* <span>{skill.level}%</span> */}
                       </div>
