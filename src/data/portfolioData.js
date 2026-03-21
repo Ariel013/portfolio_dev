@@ -11,7 +11,8 @@ export const personalInfo = {
   location: "Abidjan, Côte-d'Ivoire",
   
   // Photo de profil - Remplacez par le chemin de votre photo
-  avatar: import.meta.env.BASE_URL + "https://res.cloudinary.com/dywgshhwp/image/upload/v1774098701/Identity_uql9xt.png",
+  // avatar: import.meta.env.BASE_URL + "https://res.cloudinary.com/dywgshhwp/image/upload/v1774098701/Identity_uql9xt.png",
+  avatar: "https://res.cloudinary.com/dywgshhwp/image/upload/v1774098701/Identity_uql9xt.png",
 
   // CV PDF - Mettez votre CV dans le dossier public et indiquez le chemin
   resumeUrl: import.meta.env.BASE_URL + "Ariel_Kevin_SODJINOU.pdf",
@@ -20,8 +21,10 @@ export const personalInfo = {
   social: {
     linkedin: "https://www.linkedin.com/in/ariel-kevin-sodjinou/",
     github: "https://github.com/Ariel013",
-    // twitter: "https://twitter.com/votre-username",
-    portfolio: "https://votre-site.com"
+    twitter: "https://twitter.com/aarielkev",
+    discord: "https://discord.com/users/votre-id",
+    codingame: "https://www.codingame.com/profile/33efd4d25f08a990da64f683baf3a3385218355",
+    portfolio: "https://ariel013.github.io/portfolio_dev/"
   },
   
   // À propos de moi
@@ -30,7 +33,7 @@ export const personalInfo = {
     // "Spécialisé dans l'écosystème JavaScript/TypeScript (React, Node.js, Next.js) avec une forte orientation vers les meilleures pratiques de développement et l'architecture logicielle.",
     // "Passionné par l'innovation technologique, j'aime relever des défis complexes et transformer des idées en solutions concrètes et performantes.",
     // "Toujours en veille technologique, je m'efforce de rester à jour avec les dernières tendances et outils du développement web."
-    "Passionné d'innovation technologiques, j'évolue en tant que Backend Developer avec des compétences en NodeJs et en architecture MERN.",
+    "Passionné d'innovation technologiques, j'évolue en tant que Fullstack Developer (Toute fois je préfère le backend 😁) avec des compétences en NodeJs et en architecture MERN.",
     "Avec une approche pédagogique, je partage mes connaissances en tant qu'Accompagnateur Pédagogique à EPITECH Bénin, tout en portant une attention particulière à la gestion de projet et aux nouvelles technologies.",
     "Mon parcours s’enrichit constamment grâce à mon esprit curieux et mon envie de repousser les limites dans tout ce que j'entreprends."
   ]
@@ -140,7 +143,7 @@ export const projects = [
     id: 4,
     title: "Dashboard",
     description: "Développement collaboratif d’un système de suivi académique à EPITECH Bénin (structuration et backend).",
-    image: "https://via.placeholder.com/600x400",
+    image: "https://placehold.co/600x400/1e40af/ffffff?text=Dashboard",
     technologies: ["React", "Node.js", "MongoDB"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/username/project",
@@ -209,13 +212,13 @@ export const certifications = [
     date: "2023",
     url: "https://api.badgr.io/public/assertions/NZjEI44kSFWvECEOHSaDkw"
   },
-  // {
-  //   id: 4,
-  //   name: "Network Security Expert Level 1 & 2",
-  //   issuer: "Fortinet",
-  //   date: "2022",
-  //   url: "https://www.udemy.com/"
-  // }
+  {
+    id: 4,
+    name: "Network Security Expert Level 1 & 2",
+    issuer: "Fortinet",
+    date: "2022",
+    // url: "https://www.udemy.com/"
+  }
 ];
 
 // Configuration EmailJS

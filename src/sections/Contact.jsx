@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub, FaTwitter, FaDiscord } from 'react-icons/fa';
+import { SiCodingame } from 'react-icons/si';
 import emailjs from '@emailjs/browser';
 import { personalInfo, emailJsConfig } from '../data/portfolioData';
 
@@ -180,6 +181,35 @@ const Contact = () => {
                       <p className="text-sm opacity-90">Discutons directement !</p>
                     </div>
                   </motion.a>
+                </div>
+              </div>
+
+              {/* Suivez-moi */}
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                  Suivez-moi
+                </h3>
+                <div className="flex items-center gap-4">
+                  {[
+                    { icon: FaLinkedin, href: personalInfo.social.linkedin, label: 'LinkedIn', color: 'hover:text-blue-600' },
+                    { icon: FaTwitter, href: personalInfo.social.twitter, label: 'Twitter', color: 'hover:text-sky-400' },
+                    { icon: FaGithub, href: personalInfo.social.github, label: 'GitHub', color: 'hover:text-gray-900 dark:hover:text-white' },
+                    { icon: FaDiscord, href: personalInfo.social.discord, label: 'Discord', color: 'hover:text-indigo-500' },
+                    { icon: SiCodingame, href: personalInfo.social.codingame, label: 'CodinGame', color: 'hover:text-orange-400' },
+                  ].map(({ icon: Icon, href, label, color }) => (
+                    <motion.a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.2, y: -3 }}
+                      whileTap={{ scale: 0.9 }}
+                      aria-label={label}
+                      className={`p-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-gray-500 dark:text-gray-400 ${color} transition-colors duration-200`}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </motion.a>
+                  ))}
                 </div>
               </div>
             </motion.div>

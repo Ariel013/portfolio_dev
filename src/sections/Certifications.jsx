@@ -2,12 +2,13 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FaExternalLinkAlt, FaShieldAlt } from 'react-icons/fa';
-import { SiPostman } from 'react-icons/si';
+import { SiPostman, SiFortinet } from 'react-icons/si';
 import { certifications } from '../data/portfolioData';
 
 const issuerIconMap = {
   'SecOps Group': { icon: FaShieldAlt, color: 'text-red-500' },
   'Postman': { icon: SiPostman, color: 'text-orange-500' },
+  'Fortinet': { icon: SiFortinet, color: 'text-red-600' },
 };
 
 const Certifications = () => {
