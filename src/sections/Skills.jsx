@@ -4,11 +4,11 @@ import { useRef, useState } from 'react';
 import {
   FaReact,
   FaNodeJs,
-  FaJs,
   FaHtml5,
   FaGitAlt,
   FaDocker,
   FaFigma,
+  FaCode,
 } from 'react-icons/fa';
 import {
   SiNextdotjs,
@@ -18,6 +18,7 @@ import {
   SiMongodb,
   SiPostgresql,
   SiVisualstudiocode,
+  SiJavascript,
 } from 'react-icons/si';
 import { skills } from '../data/portfolioData';
 
@@ -26,17 +27,36 @@ const iconMap = {
   SiNextdotjs: SiNextdotjs,
   SiTypescript: SiTypescript,
   SiTailwindcss: SiTailwindcss,
-  FaJs: FaJs,
+  FaJs: SiJavascript,
   FaHtml5: FaHtml5,
   FaNodeJs: FaNodeJs,
   SiExpress: SiExpress,
   SiMongodb: SiMongodb,
   SiPostgresql: SiPostgresql,
-  FaCode: FaJs, // Fallback
+  FaCode: FaCode,
   FaGitAlt: FaGitAlt,
   FaDocker: FaDocker,
   SiVisualstudiocode: SiVisualstudiocode,
   FaFigma: FaFigma,
+};
+
+// Couleurs officielles des marques
+const iconColorMap = {
+  FaReact: '#61DAFB',
+  SiNextdotjs: null, // géré via classe CSS (dark/light)
+  SiTypescript: '#3178C6',
+  SiTailwindcss: '#06B6D4',
+  FaJs: '#F7DF1E',
+  FaHtml5: '#E34F26',
+  FaNodeJs: '#339933',
+  SiExpress: null,
+  SiMongodb: '#47A248',
+  SiPostgresql: '#4169E1',
+  FaCode: null,
+  FaGitAlt: '#F05032',
+  FaDocker: '#2496ED',
+  SiVisualstudiocode: '#007ACC',
+  FaFigma: '#F24E1E',
 };
 
 const Skills = () => {
@@ -121,7 +141,8 @@ const Skills = () => {
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
           >
             {filteredSkills.map((skill, index) => {
-              const IconComponent = iconMap[skill.icon] || FaJs;
+              const IconComponent = iconMap[skill.icon] || FaCode;
+              const brandColor = iconColorMap[skill.icon];
 
               return (
                 <motion.div
@@ -135,8 +156,11 @@ const Skills = () => {
                   className="bg-white dark:bg-gray-700 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer card-hover"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="mb-2 p-3 bg-gradient-to-br from-primary-light/10 to-accent-light/10 rounded-xl">
-                      <IconComponent className="w-8 h-8 text-primary-light" />
+                    <div className="mb-2 p-3 bg-gray-100 dark:bg-gray-600 rounded-xl">
+                      <IconComponent
+                        className={`w-8 h-8 ${!brandColor ? 'text-gray-700 dark:text-gray-200' : ''}`}
+                        style={brandColor ? { color: brandColor } : undefined}
+                      />
                     </div>
                     <h3 className="font-semibold text-sm text-gray-900 dark:text-white mb-2">
                       {skill.name}
