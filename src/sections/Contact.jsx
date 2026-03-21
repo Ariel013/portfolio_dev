@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub, FaTwitter, FaDiscord } from 'react-icons/fa';
-import { SiCodingame } from 'react-icons/si';
+import codingameLogo from '/codingame.png';
 import emailjs from '@emailjs/browser';
 import { personalInfo, emailJsConfig } from '../data/portfolioData';
 
@@ -197,7 +197,7 @@ const Contact = () => {
                     { icon: FaTwitter, href: personalInfo.social.twitter, label: 'Twitter', color: 'hover:text-sky-400' },
                     { icon: FaGithub, href: personalInfo.social.github, label: 'GitHub', color: 'hover:text-gray-900 dark:hover:text-white' },
                     { icon: FaDiscord, href: personalInfo.social.discord, label: 'Discord', color: 'hover:text-indigo-500' },
-                    { icon: SiCodingame, href: personalInfo.social.codingame, label: 'CodinGame', color: 'hover:text-orange-400' },
+                    { icon: null, href: personalInfo.social.codingame, label: 'CodinGame', color: '' },
                   ].map(({ icon: Icon, href, label, color }) => (
                     <motion.a
                       key={label}
@@ -209,7 +209,10 @@ const Contact = () => {
                       aria-label={label}
                       className={`p-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-gray-500 dark:text-gray-400 ${color} transition-colors duration-200`}
                     >
-                      <Icon className="w-6 h-6" />
+                      {Icon
+                        ? <Icon className="w-6 h-6" />
+                        : <img src={codingameLogo} alt="CodinGame" className="w-6 h-6 object-contain rounded" />
+                      }
                     </motion.a>
                   ))}
                 </div>
