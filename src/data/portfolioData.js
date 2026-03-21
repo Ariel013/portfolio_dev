@@ -190,32 +190,32 @@ export const education = [
 export const certifications = [
   {
     id: 1,
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
+    name: "Certified Application Pentester (CAP)",
+    issuer: "SecOps Group",
     date: "2023",
-    url: "https://aws.amazon.com/certification/"
+    // url: "https://aws.amazon.com/certification/"
   },
   {
     id: 2,
-    name: "Professional Scrum Master I",
-    issuer: "Scrum.org",
-    date: "2022",
-    url: "https://www.scrum.org/"
+    name: "Certified Network Security Practitioner (CNSP)",
+    issuer: "SecOps Group",
+    date: "2023",
+    // url: "https://www.scrum.org/"
   },
   {
     id: 3,
-    name: "React - The Complete Guide",
-    issuer: "Udemy",
-    date: "2021",
-    url: "https://www.udemy.com/"
+    name: "Postman Student Expert",
+    issuer: "Postman",
+    date: "2023",
+    url: "https://api.badgr.io/public/assertions/NZjEI44kSFWvECEOHSaDkw"
   },
-  {
-    id: 4,
-    name: "Node.js - Advanced Concepts",
-    issuer: "Udemy",
-    date: "2021",
-    url: "https://www.udemy.com/"
-  }
+  // {
+  //   id: 4,
+  //   name: "Network Security Expert Level 1 & 2",
+  //   issuer: "Fortinet",
+  //   date: "2022",
+  //   url: "https://www.udemy.com/"
+  // }
 ];
 
 // Configuration EmailJS
