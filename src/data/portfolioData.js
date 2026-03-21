@@ -22,7 +22,7 @@ export const personalInfo = {
     linkedin: "https://www.linkedin.com/in/ariel-kevin-sodjinou/",
     github: "https://github.com/Ariel013",
     twitter: "https://twitter.com/aarielkev",
-    discord: "https://discord.com/users/votre-id",
+    discord: "https://discord.com/users/931712339793821746",
     codingame: "https://www.codingame.com/profile/33efd4d25f08a990da64f683baf3a3385218355",
     portfolio: "https://ariel013.github.io/portfolio_dev/"
   },
