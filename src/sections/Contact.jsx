@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub, FaTwitter, FaDiscord } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub, FaTwitter, FaDiscord, FaPhone } from 'react-icons/fa';
 import codingameLogo from '/codingame.png';
 import emailjs from '@emailjs/browser';
 import { personalInfo, emailJsConfig } from '../data/portfolioData';
@@ -162,6 +162,24 @@ const Contact = () => {
                       <p className="text-gray-600 dark:text-gray-400">
                         {personalInfo.location}
                       </p>
+                    </div>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-gradient-to-br from-primary-light/10 to-accent-light/10 rounded-xl">
+                      <FaPhone className="w-6 h-6 text-primary-light" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
+                        Téléphone
+                      </h4>
+                      <a
+                        href={`tel:${personalInfo.phone}`}
+                        className="text-gray-600 dark:text-gray-400 hover:text-primary-light transition-colors duration-200"
+                      >
+                        {personalInfo.phone}
+                      </a>
                     </div>
                   </div>
 
