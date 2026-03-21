@@ -47,6 +47,8 @@ portfolio-pro/
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
+├── .env                 # Variables d'environnement (ignoré par Git)
+├── .env.example         # Modèle de variables à partager
 ├── index.html
 ├── package.json
 ├── tailwind.config.js
@@ -117,20 +119,23 @@ avatar: "/votre-photo.jpg"
 1. Créez un compte sur [EmailJS](https://www.emailjs.com/)
 2. Créez un service email (Gmail, Outlook, etc.)
 3. Créez un template email
-4. Récupérez vos identifiants :
-   - Service ID
-   - Template ID
-   - Public Key
+4. Récupérez vos identifiants : Service ID, Template ID, Public Key
 
-5. Mettez à jour `src/data/portfolioData.js` :
+5. Copiez `.env.example` en `.env` à la racine du projet :
 
-```javascript
-export const emailJsConfig = {
-  serviceId: "YOUR_SERVICE_ID",
-  templateId: "YOUR_TEMPLATE_ID",
-  publicKey: "YOUR_PUBLIC_KEY"
-};
+```bash
+cp .env.example .env
 ```
+
+6. Renseignez vos identifiants dans `.env` :
+
+```env
+VITE_EMAILJS_SERVICE_ID=votre_service_id
+VITE_EMAILJS_TEMPLATE_ID=votre_template_id
+VITE_EMAILJS_PUBLIC_KEY=votre_public_key
+```
+
+> **Important :** Le fichier `.env` est ignoré par Git (voir `.gitignore`). Ne commitez jamais vos clés. Partagez uniquement `.env.example`.
 
 **Template EmailJS recommandé :**
 
@@ -138,6 +143,7 @@ export const emailJsConfig = {
 Nouveau message de {{name}}
 
 Email: {{email}}
+Sujet: {{subject}}
 
 Message:
 {{message}}

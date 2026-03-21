@@ -14,6 +14,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: '',
   });
 
@@ -64,6 +65,7 @@ const Contact = () => {
       setFormData({
         name: '',
         email: '',
+        subject: '',
         message: '',
       });
     } catch (error) {
@@ -217,42 +219,62 @@ const Contact = () => {
             {/* Contact Form */}
             <motion.div variants={itemVariants}>
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                {/* Name */}
+                {/* Nom complet + Email sur la même ligne */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
+                      Nom complet
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent outline-none transition-all duration-200 text-gray-900 dark:text-white"
+                      placeholder="John Doe"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent outline-none transition-all duration-200 text-gray-900 dark:text-white"
+                      placeholder="john.doe@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Sujet */}
                 <div>
                   <label
-                    htmlFor="name"
+                    htmlFor="subject"
                     className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                   >
-                    Nom complet
+                    Sujet
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent outline-none transition-all duration-200 text-gray-900 dark:text-white"
-                    placeholder="John Doe"
-                    required
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent outline-none transition-all duration-200 text-gray-900 dark:text-white"
-                    placeholder="john.doe@example.com"
+                    placeholder="Objet de votre message"
                     required
                   />
                 </div>

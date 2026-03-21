@@ -221,9 +221,9 @@ export const certifications = [
   }
 ];
 
-// Configuration EmailJS
+// Configuration EmailJS — valeurs chargées depuis le fichier .env
 export const emailJsConfig = {
-  serviceId: "YOUR_SERVICE_ID", // À remplacer
-  templateId: "YOUR_TEMPLATE_ID", // À remplacer
-  publicKey: "YOUR_PUBLIC_KEY" // À remplacer
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
 };
