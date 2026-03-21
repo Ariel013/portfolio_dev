@@ -8,7 +8,6 @@ import { personalInfo, emailJsConfig } from '../data/portfolioData';
 
 const Contact = () => {
   const ref = useRef(null);
-  const formRef = useRef();
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const [formData, setFormData] = useState({
@@ -48,11 +47,15 @@ const Contact = () => {
     }
 
     try {
-      // Envoyer l'email avec EmailJS
-      await emailjs.sendForm(
+      await emailjs.send(
         emailJsConfig.serviceId,
         emailJsConfig.templateId,
-        formRef.current,
+        {
+          name: formData.name,
+          email: formData.email,
+          title: formData.subject,
+          message: formData.message,
+        },
         emailJsConfig.publicKey
       );
 
@@ -61,18 +64,12 @@ const Contact = () => {
         message: 'Message envoyé avec succès ! Je vous répondrai bientôt.',
       });
 
-      // Réinitialiser le formulaire
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Erreur EmailJS:', error);
       setStatus({
         type: 'error',
-        message: 'Une erreur est survenue. Veuillez réessayer ou me contacter directement par email.',
+        message: `Erreur : ${error?.text || error?.message || 'Une erreur est survenue. Réessayez ou contactez-moi directement par email.'}`,
       });
     } finally {
       setIsSubmitting(false);
@@ -221,7 +218,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <motion.div variants={itemVariants}>
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Nom complet + Email sur la même ligne */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
