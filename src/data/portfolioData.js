@@ -120,52 +120,52 @@ export const projects = [
     id: 2,
     title: "RAG RH Assistant",
     description: "Chatbot basé sur la méthode RAG (Retriever-Augmented Generation) pour répondre aux questions courantes des employés concernant les ressources humaines (politiques internes, avantages, congés, etc.). Ce système utilise un modèle d'IA pour récupérer des informations pertinentes et générer des réponses précises, automatisant ainsi les tâches RH et optimisant l'expérience des collaborateurs.",
-    image: "https://via.placeholder.com/600x400",
-    technologies: ["FastAPI", "ChromaDB", "Python", "HuggingFace Spaces"],
+    image: "../public/rag.png",
+    technologies: ["FastAPI", "ChromaDB", "Python"],
     liveUrl: "https://arieldev13-assistant-rh-rag.hf.space",
     githubUrl: "https://github.com/Ariel013/Rag-RH.git",
     featured: true
   },
   {
     id: 3,
-    title: "Portfolio Generator",
-    description: "Générateur de portfolio personnalisable avec templates professionnels et export PDF.",
-    image: "https://via.placeholder.com/600x400",
-    technologies: ["React", "Tailwind", "Firebase", "jsPDF"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
+    title: "Hemosafe",
+    description: "Conception et développement d’une application e-santé pour la gestion des demandes de transfusions sanguines dans les hôpitaux béninois.",
+    image: "../public/screen.png",
+    technologies: ["Next", "Nest", "Prisma", "Postgresql"],
+    // liveUrl: "https://example.com",
+    // githubUrl: "https://github.com/username/project",
     featured: false
   },
   {
     id: 4,
-    title: "Weather Dashboard",
-    description: "Tableau de bord météo interactif avec prévisions, graphiques et géolocalisation.",
+    title: "Dashboard",
+    description: "Développement collaboratif d’un système de suivi académique à EPITECH Bénin (structuration et backend).",
     image: "https://via.placeholder.com/600x400",
-    technologies: ["React", "Chart.js", "OpenWeather API", "Leaflet"],
+    technologies: ["React", "Node.js", "MongoDB"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com/username/project",
     featured: false
   },
-  {
-    id: 5,
-    title: "Social Media Dashboard",
-    description: "Dashboard d'analyse de réseaux sociaux avec métriques et visualisations de données.",
-    image: "https://via.placeholder.com/600x400",
-    technologies: ["React", "D3.js", "Node.js", "Express"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
-    featured: false
-  },
-  {
-    id: 6,
-    title: "Blog Platform",
-    description: "Plateforme de blog moderne avec éditeur Markdown, commentaires et système de tags.",
-    image: "https://via.placeholder.com/600x400",
-    technologies: ["Next.js", "MDX", "Prisma", "PostgreSQL"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
-    featured: false
-  }
+  // {
+  //   id: 5,
+  //   title: "Social Media Dashboard",
+  //   description: "Dashboard d'analyse de réseaux sociaux avec métriques et visualisations de données.",
+  //   image: "https://via.placeholder.com/600x400",
+  //   technologies: ["React", "D3.js", "Node.js", "Express"],
+  //   liveUrl: "https://example.com",
+  //   githubUrl: "https://github.com/username/project",
+  //   featured: false
+  // },
+  // {
+  //   id: 6,
+  //   title: "Blog Platform",
+  //   description: "Plateforme de blog moderne avec éditeur Markdown, commentaires et système de tags.",
+  //   image: "https://via.placeholder.com/600x400",
+  //   technologies: ["Next.js", "MDX", "Prisma", "PostgreSQL"],
+  //   liveUrl: "https://example.com",
+  //   githubUrl: "https://github.com/username/project",
+  //   featured: false
+  // }
 ];
 
 export const education = [
