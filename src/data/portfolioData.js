@@ -84,7 +84,7 @@ export const experiences = [
     description: [
       "Réalisation de tests d'intrusion sur applications web ",
       "Rédaction de bulletins d'alerte et de rapports SOC",
-      "Monitoring d'outils de surveillance",
+      "Monitoring d'outils de surveillance (FortiSIEM)",
       "Veille de vulnérabilités"
     ],
     technologies: ["Pentest","FortiSIEM", "Scripting"]
@@ -101,7 +101,7 @@ export const experiences = [
       "Câblage réseau",
       "Configuration et Mise en place d'un proxy cache (Artica Proxy) pour le contrôle des utilisateurs."
     ],
-    // technologies: ["Packet Tracer", "Voix IP", "Réseaux"]
+    technologies: ["Packet Tracer", "Voix IP", "Réseaux"]
   }
 ];
 
@@ -120,7 +120,7 @@ export const projects = [
     id: 2,
     title: "RAG RH Assistant",
     description: "Chatbot basé sur la méthode RAG (Retriever-Augmented Generation) pour répondre aux questions courantes des employés concernant les ressources humaines (politiques internes, avantages, congés, etc.). Ce système utilise un modèle d'IA pour récupérer des informations pertinentes et générer des réponses précises, automatisant ainsi les tâches RH et optimisant l'expérience des collaborateurs.",
-    image: "../public/rag.png",
+    image: "rag.png",
     technologies: ["FastAPI", "ChromaDB", "Python"],
     liveUrl: "https://arieldev13-assistant-rh-rag.hf.space",
     githubUrl: "https://github.com/Ariel013/Rag-RH.git",
@@ -130,7 +130,7 @@ export const projects = [
     id: 3,
     title: "Hemosafe",
     description: "Conception et développement d’une application e-santé pour la gestion des demandes de transfusions sanguines dans les hôpitaux béninois.",
-    image: "../public/screen.png",
+    image: "screen.png",
     technologies: ["Next", "Nest", "Prisma", "Postgresql"],
     // liveUrl: "https://example.com",
     // githubUrl: "https://github.com/username/project",
