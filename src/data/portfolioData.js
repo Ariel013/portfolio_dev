@@ -33,8 +33,8 @@ export const personalInfo = {
     // "Spécialisé dans l'écosystème JavaScript/TypeScript (React, Node.js, Next.js) avec une forte orientation vers les meilleures pratiques de développement et l'architecture logicielle.",
     // "Passionné par l'innovation technologique, j'aime relever des défis complexes et transformer des idées en solutions concrètes et performantes.",
     // "Toujours en veille technologique, je m'efforce de rester à jour avec les dernières tendances et outils du développement web."
-    "Passionné d'innovation technologiques, j'évolue en tant que Fullstack Developer (Toute fois je préfère le backend 😁) avec des compétences en NodeJs et en architecture MERN.",
-    "Avec une approche pédagogique, je partage mes connaissances en tant qu'Accompagnateur Pédagogique à EPITECH Bénin, tout en portant une attention particulière à la gestion de projet et aux nouvelles technologies.",
+    "Passionné d'innovation technologiques, j'évolue en tant que Fullstack Developer (même si je préfère le backend 😁) avec des compétences en NodeJs et en architecture MERN.",
+    "Avec une approche pédagogique, je partage mes connaissances en tant qu'Accompagnateur Pédagogique à EPITECH, tout en portant une attention particulière à la gestion de projet et aux nouvelles technologies.",
     "Mon parcours s’enrichit constamment grâce à mon esprit curieux et mon envie de repousser les limites dans tout ce que j'entreprends."
   ]
 };
