@@ -90,9 +90,10 @@ export const experiences = [
       "Réalisation de tests d'intrusion sur applications web ",
       "Rédaction de bulletins d'alerte et de rapports SOC",
       "Monitoring d'outils de surveillance (FortiSIEM)",
-      "Veille de vulnérabilités"
+      "Veille de vulnérabilités",
+      "Formation d'initiation à la cybersécurité à un public cible"
     ],
-    technologies: ["Pentest","FortiSIEM", "Scripting"]
+    technologies: ["Pentest","FortiSIEM", "Shell Scripting"]
   },
   {
     id: 3,
