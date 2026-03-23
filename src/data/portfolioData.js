@@ -74,7 +74,9 @@ export const experiences = [
       "Suivi pédagogique et évaluation de la progression",
       // "Evaluation de la progression et adapatation du contenu pédagogique.",
       "Revue de code, assistance technique et mentorat",
-      "Développement d'outils internes"
+      "λ Développement d'outils internes améliorant les processus pédagogiques et organisationnels avec MongoDB and Express and React and Node.js",
+      "Formation et accompagnement d'étudiants en développement web fullstack et bonnes pratiques logicielles",
+      "Création de tutoriels techniques, ateliers et ressources d'apprentissage en ingénierie logicielle",
     ],
     technologies: ["Développement Web", "Backend", "Data/IA", "Pédagogie", "Machine Learning", "NLP","Data Analysis"]
   },
