@@ -84,7 +84,7 @@ const Experience = () => {
                       index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'
                     }`}
                   >
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 text-left">
                       {/* Company & Position */}
                       <div className="mb-4">
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">

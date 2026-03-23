@@ -29,13 +29,9 @@ export const personalInfo = {
   
   // À propos de moi
   about: [
-    // "Développeur Full Stack avec plus de 3 ans d'expérience dans la création d'applications web modernes et scalables.",
-    // "Spécialisé dans l'écosystème JavaScript/TypeScript (React, Node.js, Next.js) avec une forte orientation vers les meilleures pratiques de développement et l'architecture logicielle.",
-    // "Passionné par l'innovation technologique, j'aime relever des défis complexes et transformer des idées en solutions concrètes et performantes.",
-    // "Toujours en veille technologique, je m'efforce de rester à jour avec les dernières tendances et outils du développement web."
-    "Passionné d'innovation technologiques, j'évolue en tant que Fullstack Developer (même si je préfère le backend 😁) avec des compétences en NodeJs et en architecture MERN.",
-    "Avec une approche pédagogique, je partage mes connaissances en tant qu'Accompagnateur Pédagogique à EPITECH, tout en portant une attention particulière à la gestion de projet et aux nouvelles technologies.",
-    "Mon parcours s’enrichit constamment grâce à mon esprit curieux et mon envie de repousser les limites dans tout ce que j'entreprends."
+    "Développeur Full Stack avec une préférence marquée pour le backend (Node.js, architecture MERN), je conçois des applications web robustes et performantes orientées vers la résolution de vrais problèmes.",
+    "Accompagnateur à EPITECH, j’accompagne des étudiants en Data/IA et bonnes pratiques logicielles, alliant technique et pédagogie.",
+    "Curieux par nature, je m’investis également dans la cybersécurité et l’intelligence artificielle, deux domaines qui enrichissent ma vision du développement logiciel."
   ]
 };
 
@@ -44,7 +40,7 @@ export const skills = [
   { name: "React", category: "Frontend", level: 70, icon: "FaReact" },
   { name: "Next.js", category: "Frontend", level: 70, icon: "SiNextdotjs" },
   { name: "TypeScript", category: "Frontend", level: 60, icon: "SiTypescript" },
-  // { name: "Tailwind CSS", category: "Frontend", level: 92, icon: "SiTailwindcss" },
+  { name: "Tailwind CSS", category: "Frontend", level: 85, icon: "SiTailwindcss" },
   { name: "JavaScript", category: "Frontend", level: 80, icon: "FaJs" },
   { name: "HTML/CSS", category: "Frontend", level: 70, icon: "FaHtml5" },
   
@@ -57,7 +53,7 @@ export const skills = [
   
   // Outils
   { name: "Git", category: "Outils", level: 80, icon: "FaGitAlt" },
-  // { name: "Docker", category: "Outils", level: 75, icon: "FaDocker" },
+  { name: "Docker", category: "Outils", level: 75, icon: "FaDocker" },
   // { name: "VS Code", category: "Outils", level: 95, icon: "SiVisualstudiocode" },
   // { name: "Figma", category: "Outils", level: 85, icon: "FaFigma" },
 ];
@@ -74,7 +70,7 @@ export const experiences = [
       "Suivi pédagogique et évaluation de la progression",
       // "Evaluation de la progression et adapatation du contenu pédagogique.",
       "Revue de code, assistance technique et mentorat",
-      "λ Développement d'outils internes améliorant les processus pédagogiques et organisationnels avec MongoDB and Express and React and Node.js",
+      "Développement d'outils internes améliorant les processus pédagogiques et organisationnels avec MongoDB, Express, React et Node.js",
       "Formation et accompagnement d'étudiants en développement web fullstack et bonnes pratiques logicielles",
       "Création de tutoriels techniques, ateliers et ressources d'apprentissage en ingénierie logicielle",
     ],
@@ -145,11 +141,11 @@ export const projects = [
   {
     id: 4,
     title: "Dashboard",
-    description: "Développement collaboratif d’un système de suivi académique à EPITECH Bénin (structuration et backend).",
-    image: "https://placehold.co/600x400/1e40af/ffffff?text=Dashboard",
+    description: "Développement collaboratif d’un système interne de suivi académique à EPITECH Bénin (structuration et backend).",
+    image: "https://placehold.co/600x400/1e40af/ffffff?text=Dashboard", // TODO: Remplacer par une vraie capture d’écran
     technologies: ["React", "Node.js", "MongoDB"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/username/project",
+    // liveUrl: "", // TODO: Ajouter l’URL du projet si disponible
+    // githubUrl: "", // TODO: Ajouter l’URL du repo GitHub
     featured: false
   },
   // {
@@ -199,14 +195,14 @@ export const certifications = [
     name: "Certified Application Pentester (CAP)",
     issuer: "SecOps Group",
     date: "2023",
-    // url: "https://aws.amazon.com/certification/"
+    // url: "" // TODO: Ajouter le lien de vérification SecOps Group
   },
   {
     id: 2,
     name: "Certified Network Security Practitioner (CNSP)",
     issuer: "SecOps Group",
     date: "2023",
-    // url: "https://www.scrum.org/"
+    // url: "" // TODO: Ajouter le lien de vérification SecOps Group
   },
   {
     id: 3,
@@ -220,7 +216,7 @@ export const certifications = [
     name: "Network Security Expert Level 1 & 2",
     issuer: "Fortinet",
     date: "2022",
-    // url: "https://www.udemy.com/"
+    // url: "" // TODO: Ajouter le lien de vérification Fortinet
   }
 ];
 
