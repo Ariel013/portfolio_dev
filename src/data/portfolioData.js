@@ -78,7 +78,7 @@ export const experiences = [
   },
   {
     id: 2,
-    company: "ASIN",
+    company: "Agence des Systèmes d'Informations et du Numérique (ASIN)",
     position: "Analyste Cybersécurité",
     period: "Décembre 2022 - Mai 2023",
     location: "Cotonou, Bénin",
