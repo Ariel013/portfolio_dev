@@ -176,7 +176,7 @@ export const education = [
     degree: "Certificat concepteur développeur Web et Mobile (RNCP Niveau 5)",
     school: "EPITECH Bénin",
     period: "2022 - 2023",
-    description: "Spécialisation en développement web et génie logiciel.",
+    // description: "Spécialisation en développement web et génie logiciel.",
     // grade: "Mention Bien"
   },
   {
@@ -184,7 +184,7 @@ export const education = [
     degree: "Licence en Informatique, Réseaux et Télécommunications",
     school: "ESGIS Bénin",
     period: "2019 - 2022",
-    description: "Formation généraliste en informatique couvrant les fondamentaux des réseaux, systèmes et de la sécurité informatique.",
+    // description: "Formation généraliste en informatique couvrant les fondamentaux des réseaux, systèmes et de la sécurité informatique.",
     // grade: "Mention Bien"
   }
 ];
@@ -217,6 +217,13 @@ export const certifications = [
     issuer: "Fortinet",
     date: "2022",
     // url: "" // TODO: Ajouter le lien de vérification Fortinet
+  },
+  {
+    id: 5,
+    name: "Certification Python 3",
+    issuer: "CodinGame",
+    date: "2026",
+    url: "https://www.codingame.com/certification/ZD-U-UVUtL22OVlXF4NkBg"
   }
 ];
 
