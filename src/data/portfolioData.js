@@ -213,14 +213,14 @@ export const certifications = [
   },
   {
     id: 4,
-    name: "Network Security Expert Level 1 & 2",
+    name: "Network Security Expert 1 & 2",
     issuer: "Fortinet",
     date: "2022",
     // url: "" // TODO: Ajouter le lien de vérification Fortinet
   },
   {
     id: 5,
-    name: "Certification Python 3",
+    name: "Certification Python3",
     issuer: "CodinGame",
     date: "2026",
     url: "https://www.codingame.com/certification/ZD-U-UVUtL22OVlXF4NkBg"
