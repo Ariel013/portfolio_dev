@@ -151,7 +151,7 @@ export const projects = [
   {
     id: 5,
     title: "United Kizdom World Congres",
-    description: " Une plateforme internationale dédiée au rayonnement des danses afro, afro-latines, caribéennes et des expressions culturelles africaines.",
+    description: "Une plateforme internationale dédiée au rayonnement des danses afro-latines, au travers d'un congrès à Cotonou avec intégration de moyen de paiement",
     image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1776611686/Capture_d_%C3%A9cran_2026-04-19_151135_iuvwc3.png",
     technologies: ["Laravel", "Nuxt.js", "Mysql"],
     liveUrl: "https://unitedkizdom.com",
