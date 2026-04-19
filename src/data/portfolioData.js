@@ -37,12 +37,12 @@ export const personalInfo = {
 
 export const skills = [
   // Frontend
-  { name: "React", category: "Frontend", level: 70, icon: "FaReact" },
+  { name: "React", category: "Frontend", level: 60, icon: "FaReact" },
   { name: "Next.js", category: "Frontend", level: 70, icon: "SiNextdotjs" },
-  { name: "TypeScript", category: "Frontend", level: 60, icon: "SiTypescript" },
-  { name: "Tailwind CSS", category: "Frontend", level: 85, icon: "SiTailwindcss" },
-  { name: "JavaScript", category: "Frontend", level: 80, icon: "FaJs" },
-  { name: "HTML/CSS", category: "Frontend", level: 70, icon: "FaHtml5" },
+  { name: "TypeScript", category: "Frontend", level: 40, icon: "SiTypescript" },
+  { name: "Tailwind CSS", category: "Frontend", level: 35, icon: "SiTailwindcss" },
+  { name: "JavaScript", category: "Frontend", level: 40, icon: "FaJs" },
+  { name: "HTML/CSS", category: "Frontend", level: 60, icon: "FaHtml5" },
   
   // Backend
   { name: "Node.js", category: "Backend", level: 80, icon: "FaNodeJs" },
@@ -53,7 +53,7 @@ export const skills = [
   
   // Outils
   { name: "Git", category: "Outils", level: 80, icon: "FaGitAlt" },
-  { name: "Docker", category: "Outils", level: 75, icon: "FaDocker" },
+  { name: "Docker", category: "Outils", level: 65, icon: "FaDocker" },
   // { name: "VS Code", category: "Outils", level: 95, icon: "SiVisualstudiocode" },
   // { name: "Figma", category: "Outils", level: 85, icon: "FaFigma" },
 ];
