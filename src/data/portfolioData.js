@@ -148,16 +148,16 @@ export const projects = [
     // githubUrl: "", // TODO: Ajouter l’URL du repo GitHub
     featured: false
   },
-  // {
-  //   id: 5,
-  //   title: "Social Media Dashboard",
-  //   description: "Dashboard d'analyse de réseaux sociaux avec métriques et visualisations de données.",
-  //   image: "https://via.placeholder.com/600x400",
-  //   technologies: ["React", "D3.js", "Node.js", "Express"],
-  //   liveUrl: "https://example.com",
-  //   githubUrl: "https://github.com/username/project",
-  //   featured: false
-  // },
+  {
+    id: 5,
+    title: "United Kizdom World Congres",
+    description: " Une plateforme internationale dédiée au rayonnement des danses afro, afro-latines, caribéennes et des expressions culturelles africaines.",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1776611686/Capture_d_%C3%A9cran_2026-04-19_151135_iuvwc3.png",
+    technologies: ["Laravel", "Nuxt.js", "Mysql"],
+    liveUrl: "https://unitedkizdom.com",
+    // githubUrl: "https://github.com/username/project",
+    featured: false
+  },
   // {
   //   id: 6,
   //   title: "Blog Platform",
