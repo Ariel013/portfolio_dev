@@ -73,6 +73,9 @@ export const experiences = [
       "Développement d'outils internes améliorant les processus pédagogiques et organisationnels avec MongoDB, Express, React et Node.js",
       "Formation et accompagnement d'étudiants en développement web fullstack et bonnes pratiques logicielles",
       "Création de tutoriels techniques, ateliers et ressources d'apprentissage en ingénierie logicielle",
+      "Supervision du réseau et résolution des incidents techniques",
+      "Administration de système de contrôle d’accès (badgeuse, gestion des utilisateurs)",
+      "Configuration, maintenance et optimisation de l’infrastructure réseau (LAN, Wi-Fi, équipements)",
     ],
     technologies: ["Développement Web", "Backend", "Data/IA", "Pédagogie", "Machine Learning", "NLP","Data Analysis"]
   },
