@@ -4,7 +4,33 @@ import { FaLinkedin, FaCode, FaChalkboardTeacher, FaShieldAlt } from 'react-icon
 import { personalInfo } from '../data/portfolioData';
 import { useLanguage } from '../context/LanguageContext';
 
-const highlightIcons = [FaCode, FaChalkboardTeacher, FaShieldAlt];
+// Chaque highlight a sa propre identité chromatique
+const highlightThemes = [
+  {
+    icon: FaCode,
+    bg: 'bg-violet-50 dark:bg-violet-900/20',
+    border: 'border-violet-100 dark:border-violet-800/30',
+    iconWrap: 'bg-gradient-to-br from-violet-500/15 to-indigo-500/15',
+    iconColor: 'text-violet-500 dark:text-violet-400',
+    dot: 'bg-violet-500',
+  },
+  {
+    icon: FaChalkboardTeacher,
+    bg: 'bg-amber-50 dark:bg-amber-900/20',
+    border: 'border-amber-100 dark:border-amber-800/30',
+    iconWrap: 'bg-gradient-to-br from-amber-500/15 to-yellow-500/15',
+    iconColor: 'text-amber-500 dark:text-amber-400',
+    dot: 'bg-amber-500',
+  },
+  {
+    icon: FaShieldAlt,
+    bg: 'bg-rose-50 dark:bg-rose-900/20',
+    border: 'border-rose-100 dark:border-rose-800/30',
+    iconWrap: 'bg-gradient-to-br from-rose-500/15 to-red-500/15',
+    iconColor: 'text-rose-500 dark:text-rose-400',
+    dot: 'bg-rose-500',
+  },
+];
 
 const container = {
   hidden: { opacity: 0 },
@@ -55,22 +81,34 @@ const About = () => {
                 />
               </div>
 
-              {/* Stats */}
+              {/* Stats — chacun avec sa propre teinte */}
               <div className="grid grid-cols-3 gap-4">
-                {t.about.stats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700"
-                  >
-                    <div className="text-3xl font-bold bg-gradient-to-r from-primary-light to-accent-light bg-clip-text text-transparent mb-1">
-                      {s.value}
+                {t.about.stats.map((s, i) => {
+                  const colors = [
+                    'from-violet-500 to-indigo-500',
+                    'from-amber-500 to-orange-400',
+                    'from-rose-500 to-pink-400',
+                  ];
+                  const borders = [
+                    'border-violet-100 dark:border-violet-800/30',
+                    'border-amber-100 dark:border-amber-800/30',
+                    'border-rose-100 dark:border-rose-800/30',
+                  ];
+                  return (
+                    <div
+                      key={s.label}
+                      className={`text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-2xl border ${borders[i]}`}
+                    >
+                      <div className={`text-3xl font-bold bg-gradient-to-r ${colors[i]} bg-clip-text text-transparent mb-1`}>
+                        {s.value}
+                      </div>
+                      <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 leading-tight">
+                        {s.label}
+                      </div>
+                      <div className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{s.sub}</div>
                     </div>
-                    <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 leading-tight">
-                      {s.label}
-                    </div>
-                    <div className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{s.sub}</div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </motion.div>
 
@@ -84,20 +122,24 @@ const About = () => {
                 ))}
               </div>
 
-              {/* Highlights */}
-              <div className="space-y-4 pt-2">
+              {/* Highlights — couleur différente par bloc */}
+              <div className="space-y-3 pt-2">
                 {t.about.highlights.map(({ title, text }, i) => {
-                  const Icon = highlightIcons[i];
+                  const theme = highlightThemes[i];
+                  const Icon = theme.icon;
                   return (
                     <div
                       key={title}
-                      className="flex gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/50"
+                      className={`flex gap-4 p-4 rounded-2xl ${theme.bg} border ${theme.border} transition-all duration-200`}
                     >
-                      <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary-light/10 to-accent-light/10">
-                        <Icon className="w-5 h-5 text-primary-light" />
+                      <div className={`flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl ${theme.iconWrap}`}>
+                        <Icon className={`w-5 h-5 ${theme.iconColor}`} />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-gray-900 dark:text-white mb-0.5">{title}</div>
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <span className={`w-1.5 h-1.5 rounded-full ${theme.dot} flex-shrink-0`} />
+                          <span className="text-sm font-bold text-gray-900 dark:text-white">{title}</span>
+                        </div>
                         <div className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{text}</div>
                       </div>
                     </div>
