@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Variables CSS personnalisées */
+/* ── Variables ──────────────────────────────────────────── */
 :root {
   --primary-color: #4338CA;
   --accent-color: #0891B2;
@@ -23,6 +23,7 @@
   --border-color: #374151;
 }
 
+/* ── Reset & base ───────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +32,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Smooth scroll with offset for fixed nav */
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -39,141 +42,134 @@ body {
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar personnalisée */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
-}
-
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
   background: var(--primary-color);
-  border-radius: 5px;
+  border-radius: 99px;
+  opacity: 0.6;
 }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-color);
-}
-
-/* Sélection de texte personnalisée */
+/* ── Text selection ─────────────────────────────────────── */
 ::selection {
-  background-color: var(--primary-color);
+  background-color: #4F46E5;
   color: white;
 }
 
-::-moz-selection {
-  background-color: var(--primary-color);
-  color: white;
+/* ── Focus ──────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
-/* Animations personnalisées */
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.gradient-animation {
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* Effet de brillance au survol */
-.shine-effect {
-  position: relative;
-  overflow: hidden;
-}
-
-.shine-effect::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s;
-}
-
-.shine-effect:hover::before {
-  left: 100%;
-}
-
-/* Styles pour les cartes */
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-              0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.dark .card-hover:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5),
-              0 10px 10px -5px rgba(0, 0, 0, 0.3);
-}
-
-/* Loader */
-.loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid var(--bg-secondary);
-  border-bottom-color: var(--primary-color);
-  border-radius: 50%;
-  display: inline-block;
-  animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Barre de progression du scroll */
+/* ── Scroll progress bar ────────────────────────────────── */
 .scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
   width: 0%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  height: 3px;
+  background: linear-gradient(90deg, #4F46E5, #06B6D4);
   z-index: 9999;
-  transition: width 0.1s ease-out;
+  transition: width 0.08s linear;
 }
 
-/* Effet de focus accessible */
-*:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-/* Transitions fluides pour le thème */
-.theme-transition {
-  transition: background-color 0.3s ease, 
-              border-color 0.3s ease,
-              color 0.3s ease;
-}
-
-/* Effet glassmorphism */
+/* ── Glassmorphism ──────────────────────────────────────── */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.dark .glass-effect {
+  background: rgba(17, 24, 39, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.dark .glass-effect {
-  background: rgba(17, 24, 39, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* ── Card hover lift ────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.28s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.12),
+              0 8px 16px -4px rgba(0, 0, 0, 0.06);
+}
+.dark .card-hover:hover {
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.5),
+              0 8px 16px -4px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Shine effect ───────────────────────────────────────── */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shine-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+.shine-effect:hover::before { left: 150%; }
+
+/* ── Gradient text ──────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Loader (kept for any reuse) ────────────────────────── */
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(79, 70, 229, 0.15);
+  border-top-color: #4F46E5;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Gradient animation ─────────────────────────────────── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.gradient-animation {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ── Ping animation (available badge) ──────────────────── */
+@keyframes ping-slow {
+  0% { transform: scale(1); opacity: 0.75; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* ── Responsive image cover ─────────────────────────────── */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Smooth theme transition ────────────────────────────── */
+.theme-transition {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }

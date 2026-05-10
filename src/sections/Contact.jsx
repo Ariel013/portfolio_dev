@@ -1,47 +1,29 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub, FaTwitter, FaDiscord, FaPhone } from 'react-icons/fa';
 import codingameLogo from '/codingame.png';
 import emailjs from '@emailjs/browser';
 import { personalInfo, emailJsConfig } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { t } = useLanguage();
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const [status, setStatus] = useState({
-    type: '', // 'success' or 'error'
-    message: '',
-  });
-
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = useState({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setStatus({ type: '', message: '' });
 
-    // Validation
     if (!formData.name || !formData.email || !formData.message) {
-      setStatus({
-        type: 'error',
-        message: 'Veuillez remplir tous les champs.',
-      });
+      setStatus({ type: 'error', message: t.contact.form.error_fields });
       setIsSubmitting(false);
       return;
     }
@@ -50,86 +32,54 @@ const Contact = () => {
       await emailjs.send(
         emailJsConfig.serviceId,
         emailJsConfig.templateId,
-        {
-          name: formData.name,
-          email: formData.email,
-          title: formData.subject,
-          message: formData.message,
-        },
+        { name: formData.name, email: formData.email, title: formData.subject, message: formData.message },
         emailJsConfig.publicKey
       );
-
-      setStatus({
-        type: 'success',
-        message: 'Message envoyé avec succès ! Je vous répondrai bientôt.',
-      });
-
+      setStatus({ type: 'success', message: t.contact.form.success });
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Erreur EmailJS:', error);
-      setStatus({
-        type: 'error',
-        message: `Erreur : ${error?.text || error?.message || 'Une erreur est survenue. Réessayez ou contactez-moi directement par email.'}`,
-      });
+      setStatus({ type: 'error', message: t.contact.form.error_send });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
-  const whatsappMessage = encodeURIComponent(
-    `Bonjour ${personalInfo.name}, je vous contacte depuis votre portfolio.`
+  const whatsappMsg = encodeURIComponent(
+    t.contact.whatsapp_msg.replace('{{name}}', personalInfo.name)
   );
+
+  const container = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.2 } } };
+  const item = { hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.5 } } };
 
   return (
     <section
       id="contact"
       ref={ref}
-      className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300"
+      className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-        >
-          {/* Section Title */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-              Contactez-moi
+        <motion.div variants={container} initial="hidden" animate={isInView ? 'visible' : 'hidden'}>
+
+          {/* Header */}
+          <motion.div variants={item} className="mb-16">
+            <p className="text-sm font-semibold text-primary-light uppercase tracking-widest mb-3">
+              {t.contact.tag}
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              {t.contact.title}
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary-light to-accent-light mx-auto rounded-full"></div>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Une question ? Un projet ? N'hésitez pas à me contacter !
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-xl">
+              {t.contact.subtitle}
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <motion.div variants={itemVariants} className="space-y-8">
+            {/* Left: contact info */}
+            <motion.div variants={item} className="space-y-8">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                  Informations de Contact
+                  {t.contact.info_title}
                 </h3>
                 <div className="space-y-6">
                   {/* Email */}
@@ -138,13 +88,8 @@ const Contact = () => {
                       <FaEnvelope className="w-6 h-6 text-primary-light" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                        Email
-                      </h4>
-                      <a
-                        href={`mailto:${personalInfo.email}`}
-                        className="text-gray-600 dark:text-gray-400 hover:text-primary-light transition-colors duration-200"
-                      >
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-1">{t.contact.email_label}</h4>
+                      <a href={`mailto:${personalInfo.email}`} className="text-gray-600 dark:text-gray-400 hover:text-primary-light transition-colors duration-200">
                         {personalInfo.email}
                       </a>
                     </div>
@@ -156,12 +101,8 @@ const Contact = () => {
                       <FaMapMarkerAlt className="w-6 h-6 text-primary-light" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                        Localisation
-                      </h4>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        {personalInfo.location}
-                      </p>
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-1">{t.contact.location_label}</h4>
+                      <p className="text-gray-600 dark:text-gray-400">{personalInfo.location}</p>
                     </div>
                   </div>
 
@@ -171,13 +112,8 @@ const Contact = () => {
                       <FaPhone className="w-6 h-6 text-primary-light" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-white mb-1">
-                        Téléphone
-                      </h4>
-                      <a
-                        href={`tel:${personalInfo.phone}`}
-                        className="text-gray-600 dark:text-gray-400 hover:text-primary-light transition-colors duration-200"
-                      >
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-1">{t.contact.phone_label}</h4>
+                      <a href={`tel:${personalInfo.phone}`} className="text-gray-600 dark:text-gray-400 hover:text-primary-light transition-colors duration-200">
                         {personalInfo.phone}
                       </a>
                     </div>
@@ -185,7 +121,7 @@ const Contact = () => {
 
                   {/* WhatsApp */}
                   <motion.a
-                    href={`https://wa.me/${personalInfo.whatsapp}?text=${whatsappMessage}`}
+                    href={`https://wa.me/${personalInfo.whatsapp}?text=${whatsappMsg}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
@@ -194,17 +130,17 @@ const Contact = () => {
                   >
                     <FaWhatsapp className="w-8 h-8" />
                     <div>
-                      <h4 className="font-semibold mb-1">WhatsApp</h4>
-                      <p className="text-sm opacity-90">Discutons directement !</p>
+                      <h4 className="font-semibold mb-1">{t.contact.whatsapp_label}</h4>
+                      <p className="text-sm opacity-90">{t.contact.whatsapp_sub}</p>
                     </div>
                   </motion.a>
                 </div>
               </div>
 
-              {/* Suivez-moi */}
+              {/* Social links */}
               <div>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  Suivez-moi
+                  {t.contact.follow_title}
                 </h3>
                 <div className="flex items-center gap-4">
                   {[
@@ -234,90 +170,59 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Contact Form */}
-            <motion.div variants={itemVariants}>
+            {/* Right: form */}
+            <motion.div variants={item}>
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Nom complet + Email sur la même ligne */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                    >
-                      Nom complet
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      {t.contact.form.name}
                     </label>
                     <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
+                      type="text" id="name" name="name"
+                      value={formData.name} onChange={handleChange}
                       className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent outline-none transition-all duration-200 text-gray-900 dark:text-white"
-                      placeholder="John Doe"
-                      required
+                      placeholder={t.contact.form.name_placeholder} required
                     />
                   </div>
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                    >
-                      Email
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      {t.contact.form.email}
                     </label>
                     <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
+                      type="email" id="email" name="email"
+                      value={formData.email} onChange={handleChange}
                       className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent outline-none transition-all duration-200 text-gray-900 dark:text-white"
-                      placeholder="john.doe@example.com"
-                      required
+                      placeholder={t.contact.form.email_placeholder} required
                     />
                   </div>
                 </div>
 
-                {/* Sujet */}
                 <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Sujet
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {t.contact.form.subject}
                   </label>
                   <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
+                    type="text" id="subject" name="subject"
+                    value={formData.subject} onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent outline-none transition-all duration-200 text-gray-900 dark:text-white"
-                    placeholder="Objet de votre message"
-                    required
+                    placeholder={t.contact.form.subject_placeholder} required
                   />
                 </div>
 
-                {/* Message */}
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Message
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    {t.contact.form.message}
                   </label>
                   <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    id="message" name="message"
+                    value={formData.message} onChange={handleChange}
                     rows="5"
                     className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-light focus:border-transparent outline-none transition-all duration-200 text-gray-900 dark:text-white resize-none"
-                    placeholder="Votre message..."
-                    required
-                  ></textarea>
+                    placeholder={t.contact.form.message_placeholder} required
+                  />
                 </div>
 
-                {/* Status Message */}
                 {status.message && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
@@ -332,7 +237,6 @@ const Contact = () => {
                   </motion.div>
                 )}
 
-                {/* Submit Button */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
@@ -342,13 +246,13 @@ const Contact = () => {
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="loader w-5 h-5 border-2 border-white border-t-transparent"></div>
-                      Envoi en cours...
+                      <div className="loader w-5 h-5 border-2" />
+                      {t.contact.form.submitting}
                     </>
                   ) : (
                     <>
                       <FaPaperPlane />
-                      Envoyer le message
+                      {t.contact.form.submit}
                     </>
                   )}
                 </motion.button>

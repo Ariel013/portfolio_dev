@@ -1,147 +1,136 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FaBriefcase, FaMapMarkerAlt, FaCalendar } from 'react-icons/fa';
 import { experiences } from '../data/portfolioData';
+import { useLanguage } from '../context/LanguageContext';
 
 const Experience = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { x: -50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
+  const { t } = useLanguage();
 
   return (
     <section
       id="experience"
       ref={ref}
-      className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300"
+      className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="mb-10"
         >
-          {/* Section Title */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-              Mon Parcours
-            </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary-light to-accent-light mx-auto rounded-full"></div>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Mon évolution professionnelle et mes expériences enrichissantes
-            </p>
-          </motion.div>
+          <p className="text-sm font-semibold text-primary-light uppercase tracking-widest mb-3">
+            {t.experience.tag}
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            {t.experience.title}
+          </h2>
+          <p className="text-lg text-gray-500 dark:text-gray-400">
+            {t.experience.subtitle}
+          </p>
+        </motion.div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary-light via-accent-light to-primary-dark"></div>
+        {/* Scrollable container */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="relative rounded-2xl border border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 overflow-hidden"
+        >
+          {/* Fade top */}
+          <div className="pointer-events-none absolute top-0 left-0 right-0 h-6 z-10 bg-gradient-to-b from-gray-50 dark:from-gray-800/40 to-transparent" />
+          {/* Fade bottom */}
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-10 z-10 bg-gradient-to-t from-gray-50 dark:from-gray-800/40 to-transparent" />
 
-            {/* Experience Items */}
-            <div className="space-y-12">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={exp.id}
-                  variants={itemVariants}
-                  className={`relative flex flex-col md:flex-row gap-8 ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
-                >
-                  {/* Timeline Dot */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center justify-center">
+          <div
+            className="overflow-y-auto px-6 py-6"
+            style={{ maxHeight: '560px' }}
+          >
+            {/* Timeline */}
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-primary-light via-accent-light to-primary-light/30 rounded-full" />
+
+              <div className="space-y-6 pl-12">
+                {experiences.map((exp, index) => {
+                  const tr = t.experience.items[exp.id] || {};
+                  return (
                     <motion.div
-                      whileHover={{ scale: 1.3 }}
-                      className="w-6 h-6 bg-white dark:bg-gray-900 border-4 border-primary-light rounded-full z-10"
+                      key={exp.id}
+                      initial={{ opacity: 0, x: -16 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.45, delay: 0.2 + index * 0.12 }}
+                      className="relative"
                     >
-                      <div className="absolute inset-0 bg-primary-light rounded-full animate-ping opacity-75"></div>
+                      {/* Timeline dot */}
+                      <div className="absolute -left-[2.35rem] top-5 flex items-center justify-center">
+                        <div className="w-3.5 h-3.5 rounded-full bg-white dark:bg-gray-900 border-2 border-primary-light shadow-sm shadow-indigo-500/30" />
+                      </div>
+
+                      {/* Card */}
+                      <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-5 shadow-sm hover:shadow-md transition-shadow duration-300 group">
+
+                        {/* Top row */}
+                        <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+                          <div>
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
+                              {tr.position || exp.position}
+                            </h3>
+                            <div className="flex items-center gap-1.5 text-primary-light font-semibold text-sm mt-1">
+                              <FaBriefcase className="w-3.5 h-3.5 flex-shrink-0" />
+                              <span>{exp.company}</span>
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col items-end gap-1 text-xs text-gray-500 dark:text-gray-400 shrink-0">
+                            <div className="flex items-center gap-1.5">
+                              <FaCalendar className="w-3 h-3" />
+                              <span>{exp.period}</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <FaMapMarkerAlt className="w-3 h-3" />
+                              <span>{exp.location}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <ul className="space-y-1.5 mb-4">
+                          {(tr.description || exp.description).map((item, i) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                              <span className="text-primary-light mt-0.5 flex-shrink-0 text-xs">▪</span>
+                              <span className="leading-relaxed">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Tags */}
+                        {exp.technologies?.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5">
+                            {exp.technologies.map((tech, i) => (
+                              <span
+                                key={i}
+                                className="px-2.5 py-0.5 text-xs font-medium bg-indigo-50 dark:bg-indigo-900/20 text-primary-light rounded-full border border-indigo-100 dark:border-indigo-800/40"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </motion.div>
-                  </div>
-
-                  {/* Content Card */}
-                  <motion.div
-                    whileHover={{ y: -5, scale: 1.02 }}
-                    className={`flex-1 ${
-                      index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'
-                    }`}
-                  >
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 text-left">
-                      {/* Company & Position */}
-                      <div className="mb-4">
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                          {exp.position}
-                        </h3>
-                        <div className="flex items-center gap-2 text-primary-light font-semibold mb-3">
-                          <FaBriefcase className="w-4 h-4" />
-                          <span>{exp.company}</span>
-                        </div>
-                      </div>
-
-                      {/* Meta Info */}
-                      <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
-                        <div className="flex items-center gap-2">
-                          <FaCalendar className="w-4 h-4" />
-                          <span>{exp.period}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <FaMapMarkerAlt className="w-4 h-4" />
-                          <span>{exp.location}</span>
-                        </div>
-                      </div>
-
-                      {/* Description */}
-                      <ul className="space-y-2 mb-4">
-                        {exp.description.map((item, i) => (
-                          <li
-                            key={i}
-                            className="text-gray-700 dark:text-gray-300 flex items-start gap-2"
-                          >
-                            <span className="text-primary-light mt-1">▪</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Technologies */}
-                      <div className="flex flex-wrap gap-2">
-                        {(exp.technologies || []).map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-primary-light/10 to-accent-light/10 text-primary-light rounded-full border border-primary-light/20"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Spacer for alternating layout */}
-                  <div className="hidden md:block flex-1"></div>
-                </motion.div>
-              ))}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </motion.div>
+
       </div>
     </section>
   );

@@ -4,7 +4,7 @@
 export const personalInfo = {
   name: "Ariel Kevin SODJINOU",
   title: "Développeur Full Stack",
-  tagline: "Passionné par la création d'applications web modernes et performantes",
+  tagline: "Je conçois des APIs robustes et des interfaces qui performent — du backend Node.js jusqu'au frontend React.",
   email: "kevin.sodjinou@epitech.eu",
   phone: "+225 0502407474",
   whatsapp: "22961566704", // Numéro sans + ni espaces pour WhatsApp
