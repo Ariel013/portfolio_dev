@@ -16,14 +16,14 @@ export const translations = {
       available: 'Disponible pour de nouvelles opportunités',
       subtitle: 'Développeur Full Stack · Backend-first',
       tagline:
-        "Je conçois des APIs robustes et des interfaces qui performent — du backend Node.js jusqu'au frontend React.",
+        "Je conçois des APIs robustes et des interfaces qui performent, du backend Node.js jusqu'au frontend React.",
       cta_contact: 'Me contacter',
       cta_cv: 'Télécharger CV',
     },
 
     // ── About ────────────────────────────────────────────────────
     about: {
-      tag: 'Qui suis-je',
+      tag: 'Qui suis-je ?',
       title: 'À propos de moi',
       stats: [
         { value: '2+', label: "Années d'expérience", sub: 'en production' },
@@ -69,7 +69,7 @@ export const translations = {
     experience: {
       tag: 'Parcours professionnel',
       title: 'Mon Parcours',
-      subtitle: 'Mon évolution professionnelle et mes expériences enrichissantes',
+      subtitle: 'Mon évolution professionnelle et mes expériences+6',
       items: {
         1: {
           position: 'Accompagnateur Pédagogique Epitech',
@@ -86,6 +86,13 @@ export const translations = {
           ],
         },
         2: {
+          position: 'Formateur Automatisation No.Code',
+          description: [
+            "Conception et animation d'un bootcamp d'automatisation no-code (Zapier + Baserow) pour une vingtaine de PMs juniors",
+            "Création de cas pratiques métier : automatisation de flux de données, synchronisation d'applications, gestion d'emails et de notifications",
+          ],
+        },
+        3: {
           position: 'Analyste Cybersécurité',
           description: [
             'Réalisation de tests d\'intrusion sur applications web',
@@ -95,7 +102,7 @@ export const translations = {
             "Formation d'initiation à la cybersécurité à un public cible",
           ],
         },
-        3: {
+        4: {
           position: 'Technicien Réseaux',
           description: [
             "Installation de systèmes d'exploitation",
@@ -111,7 +118,7 @@ export const translations = {
     projects: {
       tag: 'Réalisations',
       title: 'Mes Projets',
-      subtitle: 'Découvrez une sélection de mes réalisations récentes',
+      // subtitle: 'Découvrez une sélection de mes réalisations récentes',
       filter_all: 'Tous',
       filter_featured: 'Favoris',
       view_project: 'Voir le projet',
@@ -151,7 +158,7 @@ export const translations = {
     education: {
       tag: 'Formation',
       title: 'Mon Parcours Académique',
-      subtitle: 'Mon parcours académique et mes diplômes',
+      // subtitle: 'Mon parcours académique et mes diplômes',
       items: {
         1: { degree: 'Certificat concepteur développeur Web et Mobile (RNCP Niveau 5)' },
         2: { degree: 'Licence en Informatique, Réseaux et Télécommunications' },
@@ -162,7 +169,7 @@ export const translations = {
     certifications: {
       tag: 'Certifications',
       title: 'Certifications',
-      subtitle: 'Mes certifications professionnelles et formations continues',
+      // subtitle: 'Mes certifications professionnelles et formations continues',
       click_hint: 'Cliquer pour les détails',
       modal: {
         issuer: 'Organisme',
@@ -307,6 +314,13 @@ export const translations = {
           ],
         },
         2: {
+          position: 'No-Code Automation Trainer',
+          description: [
+            'Design and facilitation of a no-code automation bootcamp (Zapier + Baserow) for around twenty junior PMs',
+            'Creation of practical business use cases: data flow automation, application synchronization, email and notification management',
+          ],
+        },
+        3: {
           position: 'Cybersecurity Analyst',
           description: [
             'Penetration testing on web applications',
@@ -316,7 +330,7 @@ export const translations = {
             'Cybersecurity introduction training for target audiences',
           ],
         },
-        3: {
+        4: {
           position: 'Network Technician',
           description: [
             'Operating system installation',

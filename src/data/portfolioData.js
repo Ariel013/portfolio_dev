@@ -89,7 +89,7 @@ export const experiences = [
       "Conception et animation d'un bootcamp d'automatisation no-code (Zapier + Baserow) pour une vingtaine de PMs juniors",
       "Création de cas pratiques métier : automatisation de flux de données, synchronisation d'applications, gestion d'emails et de notifications",
     ],
-    technologies: ["Packet Tracer", "Voix IP", "Réseaux"]
+    technologies: ["Automatisation", "Outils No Code", "Zapier", "Baserow"]
   },
   {
     id: 3,
@@ -209,36 +209,61 @@ export const certifications = [
     id: 1,
     name: "Certified Application Pentester (CAP)",
     issuer: "SecOps Group",
-    date: "2023",
-    // url: "" // TODO: Ajouter le lien de vérification SecOps Group
+    date: "Aout. 2023",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1778554792/cap_rnzxld.png",
   },
   {
     id: 2,
     name: "Certified Network Security Practitioner (CNSP)",
     issuer: "SecOps Group",
-    date: "2023",
-    // url: "" // TODO: Ajouter le lien de vérification SecOps Group
+    date: "Aout. 2023",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1778554792/cnsp_mq2dji.png",
   },
   {
     id: 3,
     name: "Postman Student Expert",
     issuer: "Postman",
-    date: "2023",
+    date: "Sep. 2023",
     url: "https://api.badgr.io/public/assertions/NZjEI44kSFWvECEOHSaDkw"
   },
   {
     id: 4,
     name: "Network Security Expert 1 & 2",
     issuer: "Fortinet",
-    date: "2022",
+    date: "Nov. 2022",
     // url: "" // TODO: Ajouter le lien de vérification Fortinet
   },
   {
     id: 5,
-    name: "Certification Python3",
+    name: "Certification CodinGame - Python3",
     issuer: "CodinGame",
-    date: "2026",
+    date: "Mar. 2026",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1778554012/codingame_rnjttu.png",
     url: "https://www.codingame.com/certification/ZD-U-UVUtL22OVlXF4NkBg"
+  },
+  {
+    id: 6,
+    name: "Certification CodinGame - CODING_SPEED - GOLD",
+    issuer: "CodinGame",
+    date: "Sept. 2025",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1778554012/codingame_rnjttu.png",
+    url: "https://www.codingame.com/certification/U1dAoKbgdFjJVarMwG_ZYA"
+  },
+  {
+    id: 7,
+    name: "Duolingo English Test",
+    issuer: "Duolingo",
+    date: "Janv. 2025",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1778554792/duolingo_mwtcsn.png",
+    url: "https://certs.duolingo.com/vudjh2uyr0wdd35b"
+  },
+  {
+    id: 8,
+    name: "Parcours de Formation PMP",
+    issuer: "GoMyCode",
+    date: "2026",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1778556543/gomycode_v62qew.png",
+    url: "",
   }
 ];
 

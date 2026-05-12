@@ -4,33 +4,45 @@ import { FaBriefcase, FaMapMarkerAlt, FaCalendar } from 'react-icons/fa';
 import { experiences } from '../data/portfolioData';
 import { useLanguage } from '../context/LanguageContext';
 
-// Couleur propre par expérience : dev/pédagogie = violet, cyber = rose, réseau = sky
-const expTheme = {
-  1: {
+// Palette cyclique — s'applique par index, indépendamment de l'ID
+// Ajouter autant d'expériences que voulu dans portfolioData.js sans toucher ici
+const expThemes = [
+  {
     dot: 'border-violet-400 shadow-violet-500/30',
     tag: 'bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400 border border-violet-100 dark:border-violet-800/40',
     company: 'text-violet-600 dark:text-violet-400',
     cardBorder: 'border-violet-100 dark:border-violet-800/30',
     cardAccent: 'from-violet-500/5 to-indigo-500/5',
-    label: 'bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-300',
   },
-  2: {
+  {
+    dot: 'border-amber-400 shadow-amber-500/30',
+    tag: 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 border border-amber-100 dark:border-amber-800/40',
+    company: 'text-amber-600 dark:text-amber-400',
+    cardBorder: 'border-amber-100 dark:border-amber-800/30',
+    cardAccent: 'from-amber-500/5 to-orange-500/5',
+  },
+  {
     dot: 'border-rose-400 shadow-rose-500/30',
     tag: 'bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 border border-rose-100 dark:border-rose-800/40',
     company: 'text-rose-600 dark:text-rose-400',
     cardBorder: 'border-rose-100 dark:border-rose-800/30',
     cardAccent: 'from-rose-500/5 to-red-500/5',
-    label: 'bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-300',
   },
-  3: {
+  {
     dot: 'border-sky-400 shadow-sky-500/30',
     tag: 'bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400 border border-sky-100 dark:border-sky-800/40',
     company: 'text-sky-600 dark:text-sky-400',
     cardBorder: 'border-sky-100 dark:border-sky-800/30',
     cardAccent: 'from-sky-500/5 to-blue-500/5',
-    label: 'bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-300',
   },
-};
+  {
+    dot: 'border-teal-400 shadow-teal-500/30',
+    tag: 'bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400 border border-teal-100 dark:border-teal-800/40',
+    company: 'text-teal-600 dark:text-teal-400',
+    cardBorder: 'border-teal-100 dark:border-teal-800/30',
+    cardAccent: 'from-teal-500/5 to-green-500/5',
+  },
+];
 
 const Experience = () => {
   const ref = useRef(null);
@@ -78,12 +90,12 @@ const Experience = () => {
           <div className="overflow-y-auto px-6 py-6" style={{ maxHeight: '560px' }}>
             <div className="relative">
               {/* Vertical line */}
-              <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-violet-400 via-rose-400 to-sky-400 rounded-full" />
+              <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-gradient-to-b from-violet-400 via-amber-400 via-rose-400 to-sky-400 rounded-full" />
 
               <div className="space-y-6 pl-12">
                 {experiences.map((exp, index) => {
                   const tr = t.experience.items[exp.id] || {};
-                  const theme = expTheme[exp.id] || expTheme[1];
+                  const theme = expThemes[index % expThemes.length];
 
                   return (
                     <motion.div

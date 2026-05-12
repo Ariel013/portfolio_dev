@@ -172,9 +172,9 @@ const Skills = () => {
                         {meta.label}
                       </span>
                     </div>
-                    <span className="text-xs text-gray-400 dark:text-gray-500 font-medium bg-white dark:bg-gray-700 px-2 py-0.5 rounded-full">
+                    {/* <span className="text-xs text-gray-400 dark:text-gray-500 font-medium bg-white dark:bg-gray-700 px-2 py-0.5 rounded-full">
                       {catSkills.length}
-                    </span>
+                    </span> */}
                   </div>
 
                   {/* Title + desc */}

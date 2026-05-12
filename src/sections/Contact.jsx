@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub, FaTwitter, FaDiscord, FaPhone } from 'react-icons/fa';
-import codingameLogo from '/codingame.png';
+const codingameLogo = 'https://res.cloudinary.com/dywgshhwp/image/upload/v1778554012/codingame_rnjttu.png';
 import emailjs from '@emailjs/browser';
 import { personalInfo, emailJsConfig } from '../data/portfolioData';
 import { useLanguage } from '../context/LanguageContext';
