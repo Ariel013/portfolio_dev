@@ -81,6 +81,18 @@ export const experiences = [
   },
   {
     id: 2,
+    company: "Digital Valley / We.Code",
+    position: "Formateur Automatisation No.Code",
+    period: "Mai 2022",
+    location: "Abidjan, Côte d'Ivoire",
+    description: [
+      "Conception et animation d'un bootcamp d'automatisation no-code (Zapier + Baserow) pour une vingtaine de PMs juniors",
+      "Création de cas pratiques métier : automatisation de flux de données, synchronisation d'applications, gestion d'emails et de notifications",
+    ],
+    technologies: ["Packet Tracer", "Voix IP", "Réseaux"]
+  },
+  {
+    id: 3,
     company: "Agence des Systèmes d'Informations et du Numérique (ASIN)",
     position: "Analyste Cybersécurité",
     period: "Décembre 2022 - Mai 2023",
@@ -95,7 +107,7 @@ export const experiences = [
     technologies: ["Pentest","FortiSIEM", "Shell Scripting"]
   },
   {
-    id: 3,
+    id: 4,
     company: "MA-INFO",
     position: "Technicien Réseaux",
     period: "Avril 2022 - Septembre 2022",
