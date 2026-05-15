@@ -244,7 +244,7 @@ export const translations = {
       available: 'Available for new opportunities',
       subtitle: 'Full Stack Developer · Backend-first',
       tagline:
-        'I build robust APIs and high-performance interfaces — from Node.js backend to React frontend.',
+        'I build robust APIs and high-performance interfaces, from Node.js backend to React frontend.',
       cta_contact: 'Contact me',
       cta_cv: 'Download Resume',
     },

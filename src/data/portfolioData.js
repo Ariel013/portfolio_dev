@@ -15,7 +15,7 @@ export const personalInfo = {
   avatar: "https://res.cloudinary.com/dywgshhwp/image/upload/v1774098701/Identity_uql9xt.png",
 
   // CV PDF - Mettez votre CV dans le dossier public et indiquez le chemin
-  resumeUrl: import.meta.env.BASE_URL + "Ariel_Kevin_SODJINOU.pdf",
+  resumeUrl: import.meta.env.BASE_URL + "Ariel Kevin SODJINOU.pdf",
   
   // Réseaux sociaux
   social: {
@@ -263,7 +263,7 @@ export const certifications = [
     issuer: "GoMyCode",
     date: "2026",
     image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1778556543/gomycode_v62qew.png",
-    url: "",
+    url: "https://res.cloudinary.com/dywgshhwp/image/upload/v1778845859/GOMYCODE_Certif_page-0001_zieixj.jpg",
   }
 ];
 
