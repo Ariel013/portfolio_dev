@@ -47,8 +47,6 @@ const TechPill = ({ tech }) => {
   );
 };
 
-const VISIBLE = 3;
-
 const Projects = () => {
   const sectionRef = useRef(null);
   const scrollRef = useRef(null);
@@ -56,9 +54,20 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeDot, setActiveDot] = useState(0);
   const { t } = useLanguage();
+  const [visibleCount, setVisibleCount] = useState(() => {
+    if (typeof window === 'undefined') return 3;
+    if (window.innerWidth < 640) return 2;
+    return 3;
+  });
+
+  useEffect(() => {
+    const handleResize = () => setVisibleCount(window.innerWidth < 640 ? 2 : 3);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const filteredProjects = projects;
-  const totalDots = Math.ceil(filteredProjects.length / VISIBLE);
+  const totalDots = Math.ceil(filteredProjects.length / visibleCount);
 
   const getTitle = (p) => t.projects.items[p.id]?.title || p.title;
   const getDesc = (p) => t.projects.items[p.id]?.description || p.description;
@@ -67,16 +76,16 @@ const Projects = () => {
     const container = scrollRef.current;
     if (!container) return 0;
     const gap = 20;
-    return (container.clientWidth - gap * (VISIBLE - 1)) / VISIBLE;
-  }, []);
+    return (container.clientWidth - gap * (visibleCount - 1)) / visibleCount;
+  }, [visibleCount]);
 
   const scrollToPage = useCallback((page) => {
     const container = scrollRef.current;
     if (!container) return;
     const cardWidth = getCardWidth();
     const gap = 20;
-    container.scrollTo({ left: page * VISIBLE * (cardWidth + gap), behavior: 'smooth' });
-  }, [getCardWidth]);
+    container.scrollTo({ left: page * visibleCount * (cardWidth + gap), behavior: 'smooth' });
+  }, [getCardWidth, visibleCount]);
 
   const handleNext = useCallback(() => {
     const container = scrollRef.current;
@@ -86,17 +95,17 @@ const Projects = () => {
       scrollToPage(0);
     } else {
       const cardWidth = getCardWidth();
-      container.scrollBy({ left: VISIBLE * (cardWidth + 20), behavior: 'smooth' });
+      container.scrollBy({ left: visibleCount * (cardWidth + 20), behavior: 'smooth' });
     }
-  }, [scrollToPage, getCardWidth]);
+  }, [scrollToPage, getCardWidth, visibleCount]);
 
   const handleScroll = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return;
     const cardWidth = getCardWidth();
-    const page = Math.round(container.scrollLeft / (VISIBLE * (cardWidth + 20)));
+    const page = Math.round(container.scrollLeft / (visibleCount * (cardWidth + 20)));
     setActiveDot(Math.min(page, totalDots - 1));
-  }, [getCardWidth, totalDots]);
+  }, [getCardWidth, totalDots, visibleCount]);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -155,8 +164,8 @@ const Projects = () => {
                       transition={{ duration: 0.4, delay: i * 0.07 }}
                       className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex-shrink-0"
                       style={{
-                        width: `calc((100% - ${(VISIBLE - 1) * 20}px) / ${VISIBLE})`,
-                        minHeight: '340px',
+                        width: `calc((100% - ${(visibleCount - 1) * 20}px) / ${visibleCount})`,
+                        minHeight: visibleCount === 2 ? '400px' : '340px',
                         scrollSnapAlign: 'start',
                       }}
                       onClick={() => setSelectedProject(project)}
