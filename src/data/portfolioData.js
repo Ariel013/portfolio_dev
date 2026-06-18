@@ -127,20 +127,23 @@ export const projects = [
     id: 1,
     title: "Bluelock",
     description: "Plateforme de challenges CTF développée pour EPITECH Bénin, inspirée de HackTheBox. Elle intègre un système de score, un classement, la création de challenges personnalisés et une interface d’administration. Les règles du jeu sont inspirées du manga Blue Lock afin de rendre l’expérience plus immersive et originale.",
-    image: "https://res.cloudinary.com/dywgshhwp/image/upload/bluelock_dnrkfh.png", // Remplacez par votre image
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/bluelock_dnrkfh.png",
     technologies: ["React", "Node.js", "MongoDB", "Express.js", "Tailwind", "Docker"],
     liveUrl: "https://epi-bluelock.bj/",
-    // githubUrl: "https://github.com/username/project",
+    type: "WEB APP",
+    date: "Jan. 2025",
     featured: true
   },
   {
     id: 2,
     title: "RAG RH Assistant",
-    description: "Chatbot basé sur la méthode RAG (Retriever-Augmented Generation) pour répondre aux questions courantes des employés concernant les ressources humaines (politiques internes, avantages, congés, etc.). Ce système utilise un modèle d'IA pour récupérer des informations pertinentes et générer des réponses précises, automatisant ainsi les tâches RH et optimisant l'expérience des collaborateurs.",
+    description: "Chatbot basé sur la méthode RAG (Retriever-Augmented Generation) pour répondre aux questions courantes des employés concernant les ressources humaines (politiques internes, avantages, congés, etc.). Ce système utilise un modèle d’IA pour récupérer des informations pertinentes et générer des réponses précises, automatisant ainsi les tâches RH et optimisant l’expérience des collaborateurs.",
     image: "https://res.cloudinary.com/dywgshhwp/image/upload/rag_kyoa3y.png",
     technologies: ["FastAPI", "ChromaDB", "Python"],
     liveUrl: "https://arieldev13-assistant-rh-rag.hf.space",
     githubUrl: "https://github.com/Ariel013/Rag-RH.git",
+    type: "IA / DATA",
+    date: "Mar. 2025",
     featured: true
   },
   {
@@ -149,28 +152,29 @@ export const projects = [
     description: "Conception et développement d’une application e-santé pour la gestion des demandes de transfusions sanguines dans les hôpitaux béninois.",
     image: "https://res.cloudinary.com/dywgshhwp/image/upload/hemosafe_dc8cle.png",
     technologies: ["Next", "Nest", "Prisma", "Postgresql"],
-    // liveUrl: "https://example.com",
-    // githubUrl: "https://github.com/username/project",
+    type: "WEB APP",
+    date: "Fév. 2024",
     featured: false
   },
   {
     id: 4,
-    title: "Dashboard",
+    title: "Dashboard EPITECH",
     description: "Développement collaboratif d’un système interne de suivi académique à EPITECH Bénin (structuration et backend).",
-    image: "https://placehold.co/600x400/1e40af/ffffff?text=Dashboard", // TODO: Remplacer par une vraie capture d’écran
+    image: "https://placehold.co/600x400/1e40af/ffffff?text=Dashboard",
     technologies: ["React", "Node.js", "MongoDB"],
-    // liveUrl: "", // TODO: Ajouter l’URL du projet si disponible
-    // githubUrl: "", // TODO: Ajouter l’URL du repo GitHub
+    type: "WEB APP",
+    date: "Oct. 2024",
     featured: false
   },
   {
     id: 5,
     title: "United Kizdom World Congres",
-    description: "Une plateforme internationale dédiée au rayonnement des danses afro-latines, au travers d'un congrès à Cotonou avec intégration de moyen de paiement",
+    description: "Une plateforme internationale dédiée au rayonnement des danses afro-latines, au travers d’un congrès à Cotonou avec intégration de moyen de paiement",
     image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1776611686/Capture_d_%C3%A9cran_2026-04-19_151135_iuvwc3.png",
     technologies: ["Laravel", "Nuxt.js", "Mysql"],
     liveUrl: "https://unitedkizdom.com",
-    // githubUrl: "https://github.com/username/project",
+    type: "WEB APP",
+    date: "Avr. 2026",
     featured: false
   },
   // {
