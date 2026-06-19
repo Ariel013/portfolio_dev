@@ -54,38 +54,40 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeDot, setActiveDot] = useState(0);
   const { t } = useLanguage();
-  const [visibleCount, setVisibleCount] = useState(() => {
-    if (typeof window === 'undefined') return 3;
-    if (window.innerWidth < 640) return 2;
-    return 3;
-  });
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 640);
+  const visibleCount = isMobile ? 1 : 3;
 
   useEffect(() => {
-    const handleResize = () => setVisibleCount(window.innerWidth < 640 ? 2 : 3);
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const filteredProjects = projects;
-  const totalDots = Math.ceil(filteredProjects.length / visibleCount);
+  const totalDots = isMobile ? filteredProjects.length : Math.ceil(filteredProjects.length / visibleCount);
 
   const getTitle = (p) => t.projects.items[p.id]?.title || p.title;
   const getDesc = (p) => t.projects.items[p.id]?.description || p.description;
 
+  const GAP = isMobile ? 16 : 20;
+
   const getCardWidth = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return 0;
-    const gap = 20;
-    return (container.clientWidth - gap * (visibleCount - 1)) / visibleCount;
-  }, [visibleCount]);
+    if (isMobile) return container.clientWidth * 0.8;
+    return (container.clientWidth - GAP * (visibleCount - 1)) / visibleCount;
+  }, [isMobile, visibleCount, GAP]);
 
   const scrollToPage = useCallback((page) => {
     const container = scrollRef.current;
     if (!container) return;
     const cardWidth = getCardWidth();
-    const gap = 20;
-    container.scrollTo({ left: page * visibleCount * (cardWidth + gap), behavior: 'smooth' });
-  }, [getCardWidth, visibleCount]);
+    if (isMobile) {
+      container.scrollTo({ left: page * (cardWidth + GAP), behavior: 'smooth' });
+    } else {
+      container.scrollTo({ left: page * visibleCount * (cardWidth + GAP), behavior: 'smooth' });
+    }
+  }, [getCardWidth, isMobile, visibleCount, GAP]);
 
   const handleNext = useCallback(() => {
     const container = scrollRef.current;
@@ -95,17 +97,22 @@ const Projects = () => {
       scrollToPage(0);
     } else {
       const cardWidth = getCardWidth();
-      container.scrollBy({ left: visibleCount * (cardWidth + 20), behavior: 'smooth' });
+      container.scrollBy({ left: (isMobile ? 1 : visibleCount) * (cardWidth + GAP), behavior: 'smooth' });
     }
-  }, [scrollToPage, getCardWidth, visibleCount]);
+  }, [scrollToPage, getCardWidth, isMobile, visibleCount, GAP]);
 
   const handleScroll = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return;
     const cardWidth = getCardWidth();
-    const page = Math.round(container.scrollLeft / (visibleCount * (cardWidth + 20)));
-    setActiveDot(Math.min(page, totalDots - 1));
-  }, [getCardWidth, totalDots, visibleCount]);
+    if (isMobile) {
+      const idx = Math.round(container.scrollLeft / (cardWidth + GAP));
+      setActiveDot(Math.min(idx, totalDots - 1));
+    } else {
+      const page = Math.round(container.scrollLeft / (visibleCount * (cardWidth + GAP)));
+      setActiveDot(Math.min(page, totalDots - 1));
+    }
+  }, [getCardWidth, totalDots, isMobile, visibleCount, GAP]);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -146,13 +153,14 @@ const Projects = () => {
                 {/* Scrollable strip */}
                 <div
                   ref={scrollRef}
-                  className="flex gap-5 overflow-x-auto"
+                  className={`projects-scroll flex overflow-x-auto ${isMobile ? 'gap-4' : 'gap-5'}`}
                   style={{
                     scrollSnapType: 'x mandatory',
                     WebkitOverflowScrolling: 'touch',
                     msOverflowStyle: 'none',
                     scrollbarWidth: 'none',
                     paddingBottom: '4px',
+                    paddingRight: isMobile ? '4px' : undefined,
                   }}
                 >
                   <style>{`.projects-scroll::-webkit-scrollbar{display:none}`}</style>
@@ -164,8 +172,10 @@ const Projects = () => {
                       transition={{ duration: 0.4, delay: i * 0.07 }}
                       className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex-shrink-0"
                       style={{
-                        width: `calc((100% - ${(visibleCount - 1) * 20}px) / ${visibleCount})`,
-                        minHeight: visibleCount === 2 ? '400px' : '340px',
+                        width: isMobile
+                          ? 'calc(80% - 8px)'
+                          : `calc((100% - ${(visibleCount - 1) * 20}px) / ${visibleCount})`,
+                        minHeight: isMobile ? '420px' : '340px',
                         scrollSnapAlign: 'start',
                       }}
                       onClick={() => setSelectedProject(project)}
@@ -215,7 +225,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* Bottom: DÉFILER + dots */}
+                {/* Bottom: DÉFILER + indicateur */}
                 <div className="flex items-center justify-between mt-7">
                   <button
                     onClick={handleNext}
@@ -225,19 +235,33 @@ const Projects = () => {
                     <FaArrowRight className="w-3.5 h-3.5" />
                   </button>
 
-                  <div className="flex items-center gap-2">
-                    {Array.from({ length: totalDots }).map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => scrollToPage(i)}
-                        className={`rounded-full transition-all duration-300 ${
-                          i === activeDot
-                            ? 'w-6 h-2.5 bg-gradient-to-r from-primary-light to-accent-light'
-                            : 'w-2.5 h-2.5 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'
-                        }`}
-                      />
-                    ))}
-                  </div>
+                  {isMobile ? (
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-medium text-gray-400 dark:text-gray-500 tabular-nums">
+                        {activeDot + 1}/{filteredProjects.length}
+                      </span>
+                      <div className="relative w-24 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div
+                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-primary-light to-accent-light rounded-full transition-all duration-300"
+                          style={{ width: `${((activeDot + 1) / filteredProjects.length) * 100}%` }}
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      {Array.from({ length: totalDots }).map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => scrollToPage(i)}
+                          className={`rounded-full transition-all duration-300 ${
+                            i === activeDot
+                              ? 'w-6 h-2.5 bg-gradient-to-r from-primary-light to-accent-light'
+                              : 'w-2.5 h-2.5 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </>
             )}
