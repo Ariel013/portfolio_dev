@@ -177,16 +177,18 @@ export const projects = [
     date: "Avr. 2026",
     featured: false
   },
-  // {
-  //   id: 6,
-  //   title: "Blog Platform",
-  //   description: "Plateforme de blog moderne avec éditeur Markdown, commentaires et système de tags.",
-  //   image: "https://via.placeholder.com/600x400",
-  //   technologies: ["Next.js", "MDX", "Prisma", "PostgreSQL"],
-  //   liveUrl: "https://example.com",
-  //   githubUrl: "https://github.com/username/project",
-  //   featured: false
-  // }
+  {
+    id: 6,
+    title: "NearYou",
+    description: "Application web (PWA) géolocalisée connectant les utilisateurs avec des prestataires de services locaux (artisans, plombiers, électriciens...) en Afrique de l'Ouest. Modèle communautaire : n'importe qui peut créer une fiche, le prestataire la revendique via OTP SMS. Intègre une carte interactive (Leaflet + OpenStreetMap), un bot WhatsApp et un système d'avis.",
+    image: "https://res.cloudinary.com/dywgshhwp/image/upload/v1781879602/Capture_d_%C3%A9cran_2026-06-19_143201_xe4fvh.png",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+    liveUrl: "https://near-you-lovat.vercel.app/",
+    githubUrl: "https://github.com/Ariel013/NearYou",
+    type: "WEB APP",
+    date: "Juin. 2026",
+    featured: false
+  }
 ];
 
 export const education = [

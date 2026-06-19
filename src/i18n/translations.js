@@ -151,6 +151,11 @@ export const translations = {
           description:
             "Une plateforme internationale dédiée au rayonnement des danses afro-latines, au travers d'un congrès à Cotonou avec intégration de moyen de paiement.",
         },
+        6: {
+          title: 'NearYou',
+          description:
+            "Application web/mobile géolocalisée connectant les utilisateurs avec des prestataires de services locaux (artisans, plombiers, électriciens...) en Afrique de l'Ouest. Modèle communautaire : n'importe qui peut créer une fiche, le prestataire la revendique via OTP SMS. Intègre une carte interactive (Leaflet + OpenStreetMap), un bot WhatsApp et un système d'avis.",
+        },
       },
     },
 
@@ -378,6 +383,11 @@ export const translations = {
           title: 'United Kizdom World Congress',
           description:
             'An international platform dedicated to promoting Afro-Latin dances through a congress in Cotonou, featuring integrated payment processing.',
+        },
+        6: {
+          title: 'NearYou',
+          description:
+            'Geolocated web/mobile app connecting users with local service providers (craftsmen, plumbers, electricians...) in West Africa. Community model: anyone can create a provider profile, which the provider can claim via SMS OTP. Features an interactive map (Leaflet + OpenStreetMap), a WhatsApp bot and a review system.',
         },
       },
     },
