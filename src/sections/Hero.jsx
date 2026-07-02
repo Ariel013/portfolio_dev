@@ -175,7 +175,7 @@ const Hero = () => {
                 transition={{ delay: 0.8, duration: 0.5 }}
                 className="absolute -right-6 top-8 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl px-4 py-3 shadow-xl shadow-black/5"
               >
-                {/* <div className="text-2xl font-bold text-gray-900 dark:text-white leading-none">2+</div> */}
+                <div className="text-2xl font-bold text-gray-900 dark:text-white leading-none">2+</div>
                 <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                   {t.about.stats[0].sub}
                 </div>
@@ -188,7 +188,7 @@ const Hero = () => {
                 transition={{ delay: 1, duration: 0.5 }}
                 className="absolute -left-8 bottom-10 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl px-4 py-3 shadow-xl shadow-black/5"
               >
-                {/* <div className="text-2xl font-bold text-gray-900 dark:text-white leading-none">5+</div> */}
+                <div className="text-2xl font-bold text-gray-900 dark:text-white leading-none">5+</div>
                 <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
                   {t.about.stats[1].sub}
                 </div>
